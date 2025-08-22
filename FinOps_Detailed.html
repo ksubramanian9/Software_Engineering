@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Global State of FinOps in 2025 - Interactive Report</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .section-heading {
+            border-left: 8px solid #3B82F6; /* blue-500 */
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.875rem; /* text-3xl */
+            font-weight: 600; /* font-semibold */
+            color: #1F2937; /* gray-800 */
+            border-radius: 0.5rem; /* rounded-md */
+        }
+        .nav-item {
+            display: block;
+            padding: 0.75rem 1rem;
+            margin-bottom: 0.5rem;
+            color: #6B7280; /* gray-500 */
+            font-weight: 500; /* font-medium */
+            transition: all 0.2s ease-in-out;
+            border-radius: 0.5rem; /* rounded-lg */
+        }
+        .nav-item:hover, .nav-item.active {
+            background-color: #EBF8FF; /* blue-50 */
+            color: #2563EB; /* blue-600 */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+            border-radius: 0.75rem; /* rounded-lg */
+            overflow: hidden; /* Ensures rounded corners apply to content */
+        }
+        th, td {
+            border: 1px solid #E5E7EB; /* gray-200 */
+            padding: 1rem;
+            text-align: left;
+        }
+        th {
+            background-color: #F3F4F6; /* gray-100 */
+            font-weight: 600; /* font-semibold */
+            color: #374151; /* gray-700 */
+        }
+        tr:nth-child(even) {
+            background-color: #F9FAFB; /* gray-50 */
+        }
+        tr:hover {
+            background-color: #EFF6FF; /* blue-50 */
+        }
+        /* Sticky header for mobile */
+        @media (max-width: 767px) {
+            .mobile-header {
+                position: sticky;
+                top: 0;
+                z-index: 10;
+                background-color: white;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                padding: 1rem;
+            }
+            .sidebar {
+                display: none; /* Hide sidebar on small screens by default */
+            }
+            .content {
+                margin-left: 0;
+            }
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: #3B82F6;
+            color: white;
+            padding: 0.75rem 1rem;
+            border-radius: 9999px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: opacity 0.3s ease-in-out;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 20;
+        }
+        .back-to-top.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-700">
+
+    <div class="min-h-screen flex flex-col lg:flex-row">
+        <!-- Mobile Header (hidden on large screens) -->
+        <header class="mobile-header lg:hidden">
+            <h1 class="text-2xl font-bold text-blue-700 mb-2">The Global State of FinOps in 2025</h1>
+            <p class="text-sm text-gray-600">Interactive Report</p>
+        </header>
+
+        <!-- Sidebar Navigation -->
+        <aside class="w-full lg:w-64 bg-white p-6 shadow-xl rounded-r-xl lg:flex-shrink-0 lg:sticky lg:top-0 lg:h-screen overflow-y-auto hidden lg:block">
+            <div class="mb-8">
+                <h1 class="text-3xl font-bold text-blue-700 mb-2">FinOps 2025</h1>
+                <p class="text-sm text-gray-600">Interactive Report</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#introduction" class="nav-item">Introduction</a></li>
+                    <li><a href="#adoption-trends" class="nav-item">Adoption Trends & Maturity</a></li>
+                    <li><a href="#multi-cloud" class="nav-item">Multi-Cloud & On-Prem Coverage</a></li>
+                    <li><a href="#challenges" class="nav-item">Key Challenges</a></li>
+                    <li><a href="#best-practices" class="nav-item">Best Practices</a></li>
+                    <li><a href="#maturity-models" class="nav-item">Maturity Models</a></li>
+                    <li><a href="#tooling" class="nav-item">Tooling & Platforms</a></li>
+                    <li><a href="#statistics" class="nav-item">Recent Statistics & Benchmarks</a></li>
+                    <li><a href="#insights" class="nav-item">Analysts' Insights</a></li>
+                    <li><a href="#case-studies" class="nav-item">Case Studies</a></li>
+                    <li><a href="#conclusion" class="nav-item">Conclusion</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="flex-grow p-6 lg:p-10">
+            <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+
+                <section id="introduction" class="mb-12">
+                    <h2 class="section-heading mb-4 text-3xl font-bold text-gray-800">Introduction</h2>
+                    <p class="mb-4"><strong>FinOps (Financial Operations)</strong> has rapidly evolved into a critical discipline for managing cloud and technology spend. With worldwide cloud expenditures projected to exceed $825 billion in 2025, organizations are adopting FinOps to ensure every dollar is well-spent. FinOps is defined as “an operational framework and cultural practice which maximizes the business value of cloud, enables timely data-driven decision making, and creates financial accountability through collaboration between engineering, finance, and business teams.” This report examines the current state of FinOps in 2025, including adoption trends, challenges, best practices, tooling, and real-world case studies.</p>
+                </section>
+
+                <hr class="border-gray-200 my-8">
+
+                <section id="adoption-trends" class="mb-12">
+                    <h2 class="section-heading">1. Adoption Trends and Maturity Across Industries and Regions</h2>
+                    <p class="mb-4">FinOps adoption is now widespread globally. The FinOps Foundation community has grown exponentially, reaching over <strong>22,000 members by mid-2024</strong>, including practitioners from 9 of the Fortune 10 companies. More than half of enterprises have established dedicated FinOps teams (51%), with another 27% planning to add FinOps functions.</p>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">FinOps Maturity: Crawl–Walk–Run</h3>
+                    <ul class="list-disc pl-6 mb-4 space-y-2">
+                        <li><strong>Crawl (Beginner):</strong> Limited cost visibility, manual reporting, basic tagging, minimal automation. Focus on quick wins.</li>
+                        <li><strong>Walk (Intermediate):</strong> Established processes, broader adoption across teams, introduction of cost management platforms, improved cost allocation (~80% accuracy). Predictive forecasting in place.</li>
+                        <li><strong>Run (Advanced):</strong> Fully integrated and continuous. Real-time visibility, heavy automation ("FinOps as Code"), unit economics, proactive governance. Cost allocation above 90% accurate.</li>
+                    </ul>
+                    <p>Maturity is improving year-over-year, with 34% of companies increasing their FinOps tooling and skills investment by at least 20% in the past year.</p>
+                </section>
+
+                <hr class="border-gray-200 my-8">
+
+                <section id="multi-cloud" class="mb-12">
+                    <h2 class="section-heading">2. FinOps Across All Cloud Providers and On-Premises Environments</h2>
+                    <p class="mb-4">Modern enterprises operate in <strong>multi-cloud and hybrid IT environments</strong>, and FinOps has expanded to cover all major platforms, including AWS, Azure, Google Cloud, Oracle Cloud, IBM Cloud, and Alibaba Cloud. 89% of companies have a multi-cloud strategy. The scope of FinOps now extends beyond public cloud to include <strong>SaaS subscriptions, software licenses, and on-premises (private cloud or data center) infrastructure costs</strong>.</p>
+                    <p class="mb-4">The FinOps Foundation introduced "FinOps Scopes" recognizing Public Cloud, SaaS, and Private Cloud/Data Center as distinct segments. For example, <strong>65% of FinOps teams now oversee SaaS spend</strong> (up from 40% a year prior), and ~40% manage private cloud/data center costs, expected to rise to ~60% in the coming year.</p>
+                    <p class="mb-4">The key benefit of a broad FinOps scope is a <strong>single lens on all IT spending</strong>, providing a holistic picture of costs across cloud, SaaS, and datacenter, improving decision-making and preventing siloed optimizations.</p>
+                </section>
+
+                <hr class="border-gray-200 my-8">
+
+                <section id="challenges" class="mb-12">
+                    <h2 class="section-heading">3. Key Challenges in Implementing and Scaling FinOps</h2>
+                    <ul class="list-disc pl-6 mb-4 space-y-2">
+                        <li><strong>Cultural and Organizational Alignment:</strong> Difficulty in cross-functional collaboration, silo mentality, and ensuring cost accountability is prioritized by engineering teams.</li>
+                        <li><strong>Lack of Visibility and Accurate Data:</strong> Gaining unified, detailed visibility across services and teams without comprehensive tagging and standardized data formats (e.g., FOCUS standard aims to address this).</li>
+                        <li><strong>Unpredictable and Variable Cloud Costs:</strong> Challenges in forecasting and budgeting due to usage-based and dynamic costs, leading to frequent budget overshoots (half of companies overshot by 15% last year).</li>
+                        <li><strong>Multi-Cloud and Distributed Environment Complexity:</strong> Reconciling data, discount programs, and reporting from different providers for a consolidated view.</li>
+                        <li><strong>Resource Waste and Optimization Execution:</strong> Identifying and eliminating waste (over-provisioned resources, idle workloads) and operationalizing optimization recommendations at scale, often hampered by a lack of trust in full automation.</li>
+                        <li><strong>Skills and Bandwidth Constraints:</strong> Shortage of experienced FinOps practitioners and teams being stretched thin across many capabilities.</li>
+                        <li><strong>Governance and Organizational Buy-In:</strong> Lack of clear executive support or unclear responsibilities, hindering the embedding of financial accountability into cloud operations.</li>
+                    </ul>
+                </section>
+
+                <hr class="border-gray-200 my-8">
+
+                <section id="best-practices" class="mb-12">
+                    <h2 class="section-heading">4. Best Practices in FinOps Governance, Collaboration, Automation, and Reporting</h2>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Governance and Executive Sponsorship</h3>
+                    <p class="mb-4">Establishing a clear <strong>FinOps governance framework</strong>, often with a FinOps Center of Excellence or steering committee, and strong executive sponsorship to set policies for budgeting, tagging, and approvals.</p>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Cross-Functional Collaboration</h3>
+                    <p class="mb-4"><strong>"Finance and engineering in tandem"</strong> is key. This involves embedding FinOps practitioners within engineering teams, holding regular review meetings, using gamification, and aligning KPIs (e.g., cost metrics in deployment pipelines).</p>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Automation and Integration</h3>
+                    <p class="mb-4">Automating data collection, tagging compliance, and cost anomaly detection. The trend towards <strong>"FinOps as Code"</strong> embeds cost controls into infrastructure-as-code and CI/CD pipelines to prevent inefficiencies at the source (e.g., automated commitment management).</p>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Reporting and Analytics</h3>
+                    <p class="mb-4">Transparent, timely reporting tailored to stakeholders. Executive reports align with business outcomes (unit economics), finance receives granular allocation reports (<strong>showback/chargeback</strong>), and engineering gets self-service dashboards and real-time alerts. Actionable insights and benchmarking are crucial.</p>
+                </section>
+
+                <hr class="border-gray-200 my-8">
+
+                <section id="maturity-models" class="mb-12">
+                    <h2 class="section-heading">5. Common FinOps Maturity Models and Capability Assessment</h2>
+                    <p class="mb-4">The <strong>Crawl–Walk–Run maturity model</strong> by the FinOps Foundation is widely used to assess an organization's progress in FinOps capabilities. Maturity is multi-dimensional, meaning a company can be "Run" in one area but "Walk" in another.</p>
+                    <ul class="list-disc pl-6 mb-4 space-y-2">
+                        <li><strong>Crawl (Beginner):</strong> Limited cost visibility, manual reporting, basic governance.</li>
+                        <li><strong>Walk (Intermediate):</strong> Established practices, broader adoption, tooling, improved allocation, predictive forecasting.</li>
+                        <li><strong>Run (Advanced):</strong> Fully integrated, real-time visibility, heavy automation, unit economics, proactive governance, cost allocation above 90%.</li>
+                    </ul>
+                    <p>Organizations use <strong>FinOps capability assessments</strong> to evaluate their standing against key domains like Visibility, Optimization, Planning, and Governance, guiding their roadmap for improvement.</p>
+                </section>
+
+                <hr class="border-gray-200 my-8">
+
+                <section id="tooling" class="mb-12">
+                    <h2 class="section-heading">6. Tooling and Platforms Supporting FinOps Practices</h2>
+                    <p class="mb-4">The FinOps tooling landscape is mature and diverse, supporting various aspects of cloud cost management:</p>
+                    <ul class="list-disc pl-6 mb-4 space-y-2">
+                        <li><strong>Cloud Provider Native Tools:</strong> AWS Cost Explorer, Azure Cost Management, Google Cloud Billing (basic, single-cloud visibility).</li>
+                        <li><strong>Dedicated FinOps Platforms (Third-Party):</strong> Comprehensive multi-cloud/hybrid aggregation, chargeback/showback, automation. Leaders include <strong>IBM (Apptio) Cloudability</strong> and <strong>Flexera One</strong> (recognized by Gartner).</li>
+                        <li><strong>Specialized Optimization Tools:</strong> Focus on specific aspects like automated cloud discount management (<strong>ProsperOps</strong>) or leveraging spot instances (<strong>Spot by NetApp</strong>).</li>
+                        <li><strong>Cloud Cost Intelligence and Analytics Tools:</strong> Connect cloud costs to business metrics (e.g., <strong>CloudZero</strong> for unit cost analysis).</li>
+                        <li><strong>Open Source and In-House Tools:</strong> Kubecost (for Kubernetes), custom scripts for tailored solutions. The FOCUS standard aids interoperability.</li>
+                    </ul>
+                    <div class="overflow-x-auto rounded-lg shadow-md mb-4">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>FinOps Tool / Platform</th>
+                                    <th>Coverage</th>
+                                    <th>Notable Strengths</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>AWS / Azure / GCP Native Tools</td>
+                                    <td>Single-cloud (per vendor)</td>
+                                    <td>Baseline cost visibility, basic budgeting, and recommendations within each platform; no extra cost.</td>
+                                </tr>
+                                <tr>
+                                    <td>IBM Apptio Cloudability</td>
+                                    <td>Multi-cloud, On-prem, SaaS</td>
+                                    <td>Comprehensive FinOps suite. Strong in budgeting, forecasting, and chargeback. Helps build financial accountability.</td>
+                                </tr>
+                                <tr>
+                                    <td>Flexera One (FinOps)</td>
+                                    <td>Multi-cloud, On-prem, SaaS</td>
+                                    <td>Integrates cloud cost optimization with software license & asset management (holistic IT spend view).</td>
+                                </tr>
+                                <tr>
+                                    <td>VMware Aria Cost (CloudHealth)</td>
+                                    <td>Multi-cloud (AWS, Azure, etc.), VMware private clouds</td>
+                                    <td>Mature platform with policy-driven cost governance and security integration. Robust reporting and automation.</td>
+                                </tr>
+                                <tr>
+                                    <td>CloudZero</td>
+                                    <td>Multi-cloud (especially AWS), Kubernetes</td>
+                                    <td>Focuses on cost intelligence – mapping cloud spend to products, features, and customers. Great for unit cost analysis.</td>
+                                </tr>
+                                <tr>
+                                    <td>ProsperOps / Spot</td>
+                                    <td>AWS (ProsperOps), Multi-cloud (Spot by NetApp)</td>
+                                    <td>Automated optimization services (e.g., continuous optimization of AWS savings instruments; automated use of spot instances).</td>
+                                </tr>
+                                <tr>
+                                    <td>Kubecost (Open Source)</td>
+                                    <td>Kubernetes (any cloud or on-prem)</td>
+                                    <td>Provides granular cost breakdown for containerized workloads. Helps allocate multi-tenant cluster costs.</td>
+                                </tr>
+                                <tr>
+                                    <td>Custom Scripts/Dashboards</td>
+                                    <td>Any (via billing data exports)</td>
+                                    <td>Tailored solutions for specific requirements. Highly customizable, but require maintenance.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>Executives should aim for a tooling stack that provides unified cost visibility, actionable insights, and automation, aligned with FinOps best practices.</p>
+                </section>
+
+                <hr class="border-gray-200 my-8">
+
+                <section id="statistics" class="mb-12">
+                    <h2 class="section-heading">7. Recent Statistics, Benchmarks, and Industry Survey Data (2024–2025)</h2>
+                    <p class="mb-4">Recent data quantifies the state of FinOps:</p>
+                    <ul class="list-disc pl-6 mb-4 space-y-2">
+                        <li><strong>Top Priorities:</strong> Workload optimization and waste reduction remains #1 (50% of respondents), followed by cost allocation (~30%) and accurate forecasting (~27%). Governance and policy are rising fast.</li>
+                        <li><strong>Adoption Levels:</strong> 51% of organizations have FinOps teams, with another 27% planning to introduce them. Cloud cost optimization is a top initiative for 71%.</li>
+                        <li><strong>Cloud Spending Waste and Savings Potential:</strong> Roughly <strong>30% of cloud spend is wasted</strong>. FinOps practices are delivering real savings, with Deloitte predicting <strong>$21 billion in savings in 2025</strong> and some organizations cutting up to 40% of cloud costs.</li>
+                        <li><strong>Investments:</strong> 34% of companies increased FinOps tooling and training investment by at least 20%. 63% now manage AI/ML cloud spend (doubled from last year).</li>
+                        <li><strong>Scope Expansion:</strong> 65% of FinOps teams oversee SaaS spending, and 39% manage private cloud/datacenter costs.</li>
+                        <li><strong>Benchmarking:</strong> Average AWS compute Effective Savings Rate (ESR) was ~26% in 2023. Many companies strive for >90% allocation coverage.</li>
+                    </ul>
+                    <figure class="mb-4 rounded-lg overflow-hidden shadow-md">
+                        <img src="https://placehold.co/800x450/E0F2FE/1E40AF?text=FinOps+Priorities+Chart" alt="FinOps teams’ current vs. future priorities - survey results show optimization and cost allocation are top focus areas, while governance and managing new cost domains (AI, SaaS, etc.) are rising in importance." class="w-full h-auto object-cover">
+                        <figcaption class="text-sm text-gray-600 p-2 text-center">FinOps teams’ current vs. future priorities – survey results show optimization and cost allocation are top focus areas, while governance and managing new cost domains (AI, SaaS, etc.) are rising in importance.</figcaption>
+                    </figure>
+                </section>
+
+                <hr class="border-gray-200 my-8">
+
+                <section id="insights" class="mb-12">
+                    <h2 class="section-heading">8. Insights from Analysts, Thought Leaders, and Industry Reports</h2>
+                    <ul class="list-disc pl-6 mb-4 space-y-2">
+                        <li><strong>Mainstream Discipline:</strong> Gartner's Magic Quadrant for Cloud Financial Management tools in late 2024 signifies FinOps is a strategic, established IT discipline.</li>
+                        <li><strong>ROI and Value:</strong> Deloitte predicts FinOps could save companies <strong>$21B in 2025</strong>, positioning it as a way to "make each dollar work harder" and optimize investment, not just cut costs.</li>
+                        <li><strong>Shift from Cost to Value (FinOps 2.0):</strong> The revised definition of FinOps emphasizes "maximizing the business value of cloud," aligning spend with business outcomes.</li>
+                        <li><strong>FinOps and Engineering "Shift-Left":</strong> McKinsey advocates "FinOps as Code," integrating cost checks and guardrails into CI/CD pipelines to prevent inefficiencies at the source, potentially unlocking $120B of value globally.</li>
+                        <li><strong>Role of AI and Automation:</strong> Future FinOps tools will increasingly leverage AI for predictive optimization and handling emerging cost areas like AI/ML workloads.</li>
+                        <li><strong>Sustainability and FinOps:</strong> A growing dual focus on cost optimization and sustainability, with FinOps expanding to track cloud carbon metrics (though cost remains the higher priority).</li>
+                        <li><strong>Benchmarking and Accountability:</strong> Managing cloud spend is a top challenge, and analysts encourage CIOs/CFOs to benchmark against industry metrics and hold teams accountable.</li>
+                    </ul>
+                </section>
+
+                <hr class="border-gray-200 my-8">
+
+                <section id="case-studies" class="mb-12">
+                    <h2 class="section-heading">9. Case Studies and Enterprise FinOps Examples</h2>
+                    <ul class="list-disc pl-6 mb-4 space-y-2">
+                        <li><strong>Disney:</strong> Established a dedicated FinOps team, using predictive analytics and centralized cost platforms to balance innovation with cost efficiency in streaming (Disney+, Hulu).</li>
+                        <li><strong>Uber:</strong> Manages costs across a massive multi-cloud environment (AWS, GCP, Azure, Oracle Cloud) using precise cost allocation and automated billing audits, leading to millions in annual savings.</li>
+                        <li><strong>GitLab:</strong> Leveraged the FOCUS standard to unify billing data, improve cost reporting accuracy (80% allocation), and achieve ~5% quarterly cost savings.</li>
+                        <li><strong>HSBC:</strong> Extended FinOps practices to hybrid IT, including private cloud, on-premises infrastructure, and SaaS/licensing costs, improving capacity planning and accountability.</li>
+                        <li><strong>Nine of the Fortune 10:</strong> Companies like Walmart, Meta, and Capital One are actively engaged in FinOps programs, often reporting significant savings (tens of millions of dollars) through various optimization initiatives.</li>
+                    </ul>
+                    <p>These examples reinforce core FinOps themes: cross-team efforts, automation, detailed allocation, and executive commitment, demonstrating tangible value across diverse industries.</p>
+                </section>
+
+                <hr class="border-gray-200 my-8">
+
+                <section id="conclusion" class="mb-12">
+                    <h2 class="section-heading">Conclusion</h2>
+                    <p class="mb-4">As of 2025, FinOps has firmly established itself as an essential discipline for any organization leveraging cloud and "as-a-service" technologies. Adoption is broad and growing, with companies across the globe building FinOps teams to drive financial accountability in IT. The practice has evolved beyond just curbing cloud bills – it now encompasses governance, forecasting, automation, and value optimization across multi-cloud and hybrid environments.</p>
+                    <p class="mb-4">Executives should view FinOps as a strategic capability: those who excel in it can reinvest savings into growth initiatives, price their products more competitively, and navigate economic pressures more effectively. The current state of FinOps reflects a maturing field with robust frameworks, benchmarks, and tools, yet also one that continues to adapt (e.g. to AI and new cost domains). By embracing best practices and learning from industry peers, organizations can progress along the FinOps maturity curve, from initial visibility to continuous optimization and innovation alignment. In a time when digital efficiency is a key business differentiator, a strong FinOps practice provides the insight and agility to ensure every cloud dollar spent is driving maximum business value.</p>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTopBtn">Back to Top</a>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const href = this.getAttribute('href');
+                if (href === '#') {
+                    // Scroll to the very top of the document
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    // For valid section IDs
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Highlight active navigation item based on scroll position
+        const sections = document.querySelectorAll('section[id]');
+        const navItems = document.querySelectorAll('.nav-item');
+
+        function highlightNavItem() {
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - sectionHeight / 3) { // Adjust sensitivity
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.href.includes(current)) {
+                    item.classList.add('active');
+                }
+            });
+
+            // Show/hide back to top button
+            const backToTopBtn = document.getElementById('backToTopBtn');
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        }
+
+        window.addEventListener('scroll', highlightNavItem);
+        document.addEventListener('DOMContentLoaded', highlightNavItem); // Highlight on load
+    </script>
+</body>
+</html>

@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FinOps, Explained — 2025 Executive Guide</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Palette: Slate + Amber -->
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color:#f8fafc; color:#334155; }
+    .nav-link { transition: color .3s, border-bottom-color .3s; border-bottom:2px solid transparent; }
+    .nav-link.active, .nav-link:hover { color:#f59e0b; border-bottom-color:#f59e0b; }
+    .tab-button { transition: all .2s; }
+    .tab-button.active { background:#f59e0b; color:#fff; box-shadow:0 4px 6px -1px rgb(0 0 0 / .1), 0 2px 4px -2px rgb(0 0 0 / .1); }
+    .card { transition: transform .2s, box-shadow .2s; }
+    .card:hover { transform: translateY(-3px); box-shadow: 0 10px 15px -3px rgb(0 0 0 / .1), 0 4px 6px -4px rgb(0 0 0 / .1); }
+    .chart-container { position: relative; width: 100%; max-width: 680px; margin: 0 auto; height: 340px; }
+    @media (min-width: 768px) { .chart-container { height: 420px; } }
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="bg-slate-50">
+
+<header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+  <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <h1 class="text-2xl font-extrabold text-slate-800">FinOps, Explained</h1>
+    <div class="hidden md:flex items-center space-x-8">
+      <a href="#concepts" class="nav-link font-medium pb-1">Concepts</a>
+      <a href="#maturity" class="nav-link font-medium pb-1">Maturity</a>
+      <a href="#priorities" class="nav-link font-medium pb-1">Priorities</a>
+      <a href="#playbooks" class="nav-link font-medium pb-1">Playbooks</a>
+      <a href="#tooling" class="nav-link font-medium pb-1">Tooling</a>
+    </div>
+    <div class="md:hidden">
+      <select id="mobile-nav" class="bg-slate-100 border border-slate-300 rounded-md p-2 text-slate-700">
+        <option value="#hero">Home</option>
+        <option value="#concepts">Concepts</option>
+        <option value="#maturity">Maturity</option>
+        <option value="#priorities">Priorities</option>
+        <option value="#playbooks">Playbooks</option>
+        <option value="#tooling">Tooling</option>
+      </select>
+    </div>
+  </nav>
+</header>
+
+<main class="container mx-auto px-6 py-8 md:py-12">
+
+  <!-- HERO -->
+  <section id="hero" class="text-center py-16">
+    <h2 class="text-4xl md:text-6xl font-extrabold text-slate-800 mb-4">Make Every Cloud Dollar Count</h2>
+    <p class="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto">
+      A fast, interactive tour of FinOps — the operating model that aligns engineering, finance, and business
+      to maximize value from cloud and hybrid (on‑prem + SaaS) spend. Built for an executive quick read.
+    </p>
+    <div class="mt-8 flex flex-col md:flex-row gap-4 items-center justify-center">
+      <a href="#concepts" class="px-6 py-3 bg-amber-500 hover:bg-amber-600 text-white rounded-xl font-semibold shadow">
+        Start with the Essentials
+      </a>
+      <a href="#tooling" class="px-6 py-3 bg-white text-amber-600 border border-amber-500 rounded-xl font-semibold hover:bg-amber-50">
+        See Tools & Vendors
+      </a>
+    </div>
+  </section>
+
+  <!-- CONCEPTS -->
+  <section id="concepts" class="py-16">
+    <div class="text-center mb-12">
+      <h3 class="text-3xl md:text-4xl font-bold text-slate-800">Core Concepts</h3>
+      <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
+        FinOps is a <span class="font-semibold">cloud financial operating model</span> — a blend of culture, process,
+        and tooling — that makes teams <span class="font-semibold">accountable</span> for the <span class="font-semibold">cost, performance, and value</span> of technology.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-8">
+      <div class="bg-white p-8 rounded-xl shadow-lg">
+        <h4 class="text-2xl font-bold mb-6 text-slate-800">What FinOps Delivers</h4>
+        <div class="overflow-x-auto">
+          <table class="w-full min-w-[640px] text-left">
+            <thead>
+              <tr class="border-b-2 border-slate-200">
+                <th class="p-3 font-semibold text-slate-800">Outcome</th>
+                <th class="p-3 font-semibold text-slate-800">What it Means</th>
+                <th class="p-3 font-semibold text-slate-800">Executive Signal</th>
+              </tr>
+            </thead>
+            <tbody class="text-slate-600" id="outcomes-body"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="bg-white p-8 rounded-xl shadow-lg">
+        <h4 class="text-2xl font-bold mb-6 text-slate-800">Scope of FinOps</h4>
+        <ul class="space-y-3 text-slate-600">
+          <li>🌩️ <span class="font-semibold">Public Cloud:</span> AWS, Azure, Google Cloud, Oracle Cloud.</li>
+          <li>🏛️ <span class="font-semibold">Private/On‑Prem:</span> Virtualized & Kubernetes clusters, storage, networks.</li>
+          <li>🧩 <span class="font-semibold">SaaS & Licensing:</span> Apps, data, AI/ML services, enterprise software.</li>
+          <li>🧮 <span class="font-semibold">Unit Economics:</span> Cost per customer/transaction/product for pricing and profitability.</li>
+          <li>♻️ <span class="font-semibold">Sustainability:</span> Optimize cost often means lower carbon; report where relevant.</li>
+        </ul>
+        <div class="mt-6 p-4 bg-amber-50 border border-amber-200 rounded-lg text-amber-800">
+          <span class="font-semibold">Executive takeaway:</span> Treat FinOps as a continuous operating rhythm, not a one‑off cost-cut.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MATURITY -->
+  <section id="maturity" class="py-16 bg-slate-100 -mx-6 px-6">
+    <div class="container mx-auto">
+      <div class="text-center mb-12">
+        <h3 class="text-3xl md:text-4xl font-bold text-slate-800">Maturity: Crawl → Walk → Run</h3>
+        <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
+          Improve capabilities where value is highest. Not every org needs to “Run” everywhere.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-8">
+        <div class="bg-white p-6 rounded-xl shadow-lg">
+          <div class="chart-container"><canvas id="maturityRadar"></canvas></div>
+          <p class="text-sm text-slate-500 mt-3 text-center">Comparison of capability depth across maturity stages.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-lg overflow-x-auto">
+          <table class="w-full min-w-[720px]">
+            <thead>
+              <tr class="bg-slate-100">
+                <th class="p-3 text-left font-semibold text-slate-800">Stage</th>
+                <th class="p-3 text-left font-semibold text-slate-800">What You Have</th>
+                <th class="p-3 text-left font-semibold text-slate-800">Executive Checks</th>
+              </tr>
+            </thead>
+            <tbody id="maturity-table" class="text-slate-700"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRIORITIES / STATS -->
+  <section id="priorities" class="py-16">
+    <div class="text-center mb-12">
+      <h3 class="text-3xl md:text-4xl font-bold text-slate-800">2025 Priorities & Benchmarks</h3>
+      <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
+        What leading teams focus on this year — and the numbers that matter for steering committees.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-8 items-start">
+      <div class="bg-white p-6 rounded-xl shadow-lg">
+        <h4 class="text-xl font-bold mb-3 text-slate-800">Top Focus Areas</h4>
+        <div class="chart-container"><canvas id="prioritiesBar"></canvas></div>
+        <p class="text-sm text-slate-500 mt-3">Share of teams prioritizing each area (indicative ranges).</p>
+      </div>
+      <div class="space-y-4">
+        <div class="bg-white p-6 rounded-xl shadow-lg card">
+          <h5 class="font-bold text-lg text-amber-600">Budget Accuracy</h5>
+          <p class="text-slate-600">Aim for <span class="font-semibold">≤10–15% forecast variance</span> at product/BU level with monthly re‑forecasting.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-lg card">
+          <h5 class="font-bold text-lg text-amber-600">Waste Reduction</h5>
+          <p class="text-slate-600">Commonly 20–30% of spend is optimizable. Target <span class="font-semibold">~15–25% YoY savings</span> through rightsizing & commitments.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-lg card">
+          <h5 class="font-bold text-lg text-amber-600">Coverage & Allocation</h5>
+          <p class="text-slate-600">Drive <span class="font-semibold">>90%</span> cost allocation to owners (tags/labels/projects) and clear showback/chargeback.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-lg card">
+          <h5 class="font-bold text-lg text-amber-600">AI & Kubernetes</h5>
+          <p class="text-slate-600">Add specialized controls for GPU/AI and K8s: request/limit hygiene, bin‑packing, and per‑namespace chargeback.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLAYBOOKS -->
+  <section id="playbooks" class="py-16 bg-slate-100 -mx-6 px-6">
+    <div class="container mx-auto">
+      <div class="text-center mb-12">
+        <h3 class="text-3xl md:text-4xl font-bold text-slate-800">Practical Playbooks</h3>
+        <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">Filter by outcome to surface quick wins and operating habits.</p>
+      </div>
+
+      <div class="flex justify-center mb-8 space-x-2" id="playbook-filters"></div>
+      <div id="playbook-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+    </div>
+  </section>
+
+  <!-- TOOLING -->
+  <section id="tooling" class="py-16">
+    <div class="text-center mb-12">
+      <h3 class="text-3xl md:text-4xl font-bold text-slate-800">Tooling & Vendor Landscape</h3>
+      <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
+        Mix native consoles with multi‑cloud platforms and targeted automation. Start simple, integrate deeply.
+      </p>
+    </div>
+
+    <div class="mb-6 max-w-md mx-auto">
+      <input id="vendor-search" type="text" placeholder="Search tools (e.g., Cloudability, Flexera, Kubecost)…"
+             class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none transition">
+    </div>
+
+    <div class="overflow-x-auto bg-white rounded-xl shadow-lg">
+      <table class="w-full min-w-[900px]">
+        <thead>
+          <tr class="bg-slate-100">
+            <th class="p-4 text-left font-semibold text-slate-800">Tool / Platform</th>
+            <th class="p-4 text-left font-semibold text-slate-800">Coverage</th>
+            <th class="p-4 text-left font-semibold text-slate-800">Best At</th>
+            <th class="p-4 text-left font-semibold text-slate-800">Notes</th>
+          </tr>
+        </thead>
+        <tbody id="vendor-table-body"></tbody>
+      </table>
+    </div>
+
+    <div class="mt-10 grid md:grid-cols-3 gap-6">
+      <div class="p-6 bg-white rounded-xl shadow-lg card">
+        <h5 class="font-bold text-lg text-amber-600">Adoption Pattern</h5>
+        <p class="text-slate-600">Phase 1: native tools → Phase 2: multi‑cloud platform → Phase 3: automation & “FinOps‑as‑Code”.</p>
+      </div>
+      <div class="p-6 bg-white rounded-xl shadow-lg card">
+        <h5 class="font-bold text-lg text-amber-600">Org Model</h5>
+        <p class="text-slate-600">Central FinOps office + embedded product/engineering “cost champions”.</p>
+      </div>
+      <div class="p-6 bg-white rounded-xl shadow-lg card">
+        <h5 class="font-bold text-lg text-amber-600">Operating Rhythm</h5>
+        <p class="text-slate-600">Monthly steering + weekly ops reviews + always‑on alerts and dashboards.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="bg-slate-800 text-slate-300 py-8">
+  <div class="container mx-auto text-center">
+    <p>FinOps, Explained — 2025 Executive Guide</p>
+    <p class="text-sm text-slate-400 mt-2">Summarized from a comprehensive research report. For education only.</p>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Outcomes table
+  const outcomes = [
+    { o:'Cost Transparency', m:'Unified, near‑real‑time view across clouds, on‑prem & SaaS', s:'Leaders see no surprises; variance surfaced early' },
+    { o:'Ownership & Accountability', m:'Spend tied to product/BU; showback/chargeback in place', s:'Named owners & budgets; cost included in OKRs' },
+    { o:'Predictability', m:'Rolling forecasts with anomaly detection and budget guardrails', s:'Variance ≤10–15% at BU level; fast re‑forecast' },
+    { o:'Optimization', m:'Rightsizing, scheduling, commitments, and storage hygiene at scale', s:'Sustained 15–25% YoY savings on addressable spend' },
+    { o:'Unit Economics', m:'Cost per user/txn/feature informs pricing & roadmap', s:'Value/cost trade‑offs are explicit in decisions' },
+  ];
+  const outcomesBody = document.getElementById('outcomes-body');
+  outcomesBody.innerHTML = outcomes.map(r => `
+    <tr class="border-b border-slate-200 last:border-b-0">
+      <td class="p-3 font-medium text-slate-700">${r.o}</td>
+      <td class="p-3">${r.m}</td>
+      <td class="p-3">${r.s}</td>
+    </tr>
+  `).join('');
+
+  // Maturity table
+  const maturityRows = [
+    { stage:'Crawl', have:'Ad‑hoc reports, basic tags/budgets, cost awareness starting', checks:'Allocate ≥50% spend; top 5 cost drivers known; savings backlog exists' },
+    { stage:'Walk', have:'Monthly reviews, broader tagging, showback, commitment mgmt, some automation', checks:'Allocate ~80%; forecast variance ≤20%; clear BU dashboards' },
+    { stage:'Run', have:'Real‑time visibility, guardrails-as-code, unit economics, automated optimizations', checks:'Allocate ≥90%; variance ≤12%; engineers act on alerts within SLOs' },
+  ];
+  const matBody = document.getElementById('maturity-table');
+  matBody.innerHTML = maturityRows.map(r => `
+    <tr class="border-b border-slate-100 last:border-b-0">
+      <td class="p-3 font-semibold">${r.stage}</td>
+      <td class="p-3">${r.have}</td>
+      <td class="p-3">${r.checks}</td>
+    </tr>
+  `).join('');
+
+  // Maturity radar
+  const radarCtx = document.getElementById('maturityRadar').getContext('2d');
+  const radarLabels = ['Visibility','Allocation','Forecasting','Optimization','Governance','Unit Economics'];
+  const radar = new Chart(radarCtx, {
+    type: 'radar',
+    data: {
+      labels: radarLabels,
+      datasets: [
+        { label:'Crawl', data:[3,3,2,2,2,1], fill:true, backgroundColor:'rgba(100,116,139,0.15)', borderColor:'rgba(100,116,139,0.6)', pointBackgroundColor:'rgba(100,116,139,0.6)', borderWidth:1.5 },
+        { label:'Walk', data:[6,6,5,5,5,3], fill:true, backgroundColor:'rgba(245,158,11,0.10)', borderColor:'rgba(245,158,11,0.7)', pointBackgroundColor:'rgba(245,158,11,0.8)', borderWidth:2 },
+        { label:'Run', data:[9,9,8,8,8,7], fill:true, backgroundColor:'rgba(16,185,129,0.08)', borderColor:'rgba(16,185,129,0.8)', pointBackgroundColor:'rgba(16,185,129,0.8)', borderWidth:2.5 }
+      ]
+    },
+    options: {
+      responsive:true, maintainAspectRatio:false,
+      plugins:{ legend:{ position:'bottom' } },
+      scales: {
+        r: {
+          angleLines:{ color:'rgba(0,0,0,0.1)' },
+          grid:{ color:'rgba(0,0,0,0.08)' },
+          pointLabels:{ color:'#475569', font:{ size:12 }},
+          ticks:{ backdropColor:'transparent', stepSize:2, color:'#64748b' },
+          suggestedMin:0, suggestedMax:10
+        }
+      }
+    }
+  });
+
+  // Priorities bar
+  const priorities = [
+    { name:'Waste Reduction', pct:58 },
+    { name:'Allocation Coverage', pct:48 },
+    { name:'Forecast Accuracy', pct:44 },
+    { name:'Governance & Guardrails', pct:39 },
+    { name:'AI/ML & GPU Cost Mgmt', pct:36 },
+    { name:'Kubernetes Cost Control', pct:33 },
+    { name:'Unit Economics', pct:31 },
+  ];
+  const barCtx = document.getElementById('prioritiesBar').getContext('2d');
+  const bar = new Chart(barCtx, {
+    type: 'bar',
+    data: {
+      labels: priorities.map(p=>p.name),
+      datasets: [{
+        label: '% of Teams Prioritizing',
+        data: priorities.map(p=>p.pct),
+        backgroundColor: 'rgba(245,158,11,0.6)',
+        borderColor: '#f59e0b',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive:true, maintainAspectRatio:false,
+      indexAxis:'y',
+      scales: {
+        x: { beginAtZero:true, grid:{ color:'rgba(0,0,0,0.06)' }, ticks:{ callback:(v)=>v+'%' } },
+        y: { grid:{ display:false } }
+      },
+      plugins:{ legend:{ display:false } }
+    }
+  });
+
+  // Playbooks
+  const playbooks = [
+    { title:'Tagging & Ownership Sprint', outcome:'Visibility', icon:'🏷️',
+      desc:'Enforce tags/labels, default owners, and auto-remediation for untagged resources.' },
+    { title:'Rightsize & Schedule', outcome:'Optimization', icon:'🪚',
+      desc:'Downsize over-provisioned compute; auto-stop dev/test nights & weekends.' },
+    { title:'Commitment Portfolio', outcome:'Rates', icon:'📉',
+      desc:'Maximize Savings Plans/RIs/Committed Use; automate with policy & guardrails.' },
+    { title:'Anomaly Detection', outcome:'Predictability', icon:'📈',
+      desc:'Near‑real‑time alerts on spend spikes with on-call response and rollback playbook.' },
+    { title:'K8s Chargeback', outcome:'Accountability', icon:'⚙️',
+      desc:'Namespace-level metering; set request/limit SLOs; surface noisy‑neighbor costs.' },
+    { title:'Unit Cost Drill‑downs', outcome:'Value', icon:'🧮',
+      desc:'Cost per user/txn/feature; tie to pricing and roadmap trade‑offs.' },
+    { title:'AI/GPU Controls', outcome:'AI/ML', icon:'🎛️',
+      desc:'Quotas, queues, and profiling; reserved GPU pools; model‑level cost visibility.' },
+    { title:'SaaS Hygiene', outcome:'Scope', icon:'🧹',
+      desc:'License reclamation, plan rationalization, renewal governance with usage data.' },
+    { title:'FinOps-as-Code', outcome:'Governance', icon:'🧾',
+      desc:'Policy checks in CI/CD; budget guardrails & preventative rules before deploys.' },
+  ];
+  const filters = ['All','Visibility','Optimization','Rates','Predictability','Accountability','Value','AI/ML','Scope','Governance'];
+  const filterBox = document.getElementById('playbook-filters');
+  const grid = document.getElementById('playbook-grid');
+  filterBox.innerHTML = filters.map(f => `
+    <button class="tab-button px-4 py-2 rounded-full font-medium text-sm ${f==='All'?'active':'bg-slate-200 text-slate-600'}" data-k="${f}">${f}</button>
+  `).join('');
+
+  function renderPlaybooks(k='All') {
+    const list = k==='All' ? playbooks : playbooks.filter(p => p.outcome===k);
+    grid.innerHTML = list.map(p => `
+      <div class="bg-white p-6 rounded-xl shadow-md card flex items-start space-x-4">
+        <div class="text-3xl">${p.icon}</div>
+        <div>
+          <h5 class="font-bold text-slate-800">${p.title}</h5>
+          <span class="text-sm text-amber-600 font-medium">${p.outcome}</span>
+          <p class="text-slate-600 mt-1">${p.desc}</p>
+        </div>
+      </div>
+    `).join('');
+  }
+  renderPlaybooks();
+  filterBox.addEventListener('click', e => {
+    if(e.target.matches('.tab-button')){
+      const k = e.target.dataset.k;
+      filterBox.querySelectorAll('.tab-button').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.k===k);
+        if(btn.dataset.k!==k){ btn.classList.add('bg-slate-200','text-slate-600'); }
+        else { btn.classList.remove('bg-slate-200','text-slate-600'); }
+      });
+      renderPlaybooks(k);
+    }
+  });
+
+  // Vendors
+  const vendors = [
+    { name:'AWS Cost Explorer / Budgets', cov:'AWS', best:'Native visibility, budgets, anomalies', notes:'Great baseline; single‑cloud' },
+    { name:'Azure Cost Management', cov:'Azure (+ some multi)', best:'Azure-native governance & budgets', notes:'Good for Azure-first orgs' },
+    { name:'Google Cloud Billing & Recs', cov:'GCP', best:'Detailed billing export, recs', notes:'Use with BigQuery for BI' },
+    { name:'Oracle Cloud Cost Analysis', cov:'OCI', best:'Native visibility for OCI', notes:'Pairs with enterprise discounts' },
+    { name:'IBM Apptio Cloudability', cov:'Multi‑cloud + On‑prem + SaaS', best:'Chargeback, forecasting, TBM-aligned', notes:'Enterprise suite; deep analytics' },
+    { name:'Flexera One (FinOps)', cov:'Multi‑cloud + On‑prem + SaaS', best:'Unified IT spend, license + cloud', notes:'Strong for hybrid estates' },
+    { name:'VMware Aria Cost (CloudHealth)', cov:'Multi‑cloud + VMware', best:'Policies, rightsizing, governance', notes:'Popular with VMware footprint' },
+    { name:'CloudZero', cov:'Multi‑cloud + K8s', best:'Unit economics & cost intelligence', notes:'Great for product-aligned costs' },
+    { name:'ProsperOps', cov:'AWS', best:'Autonomous RI/Savings Plan mgmt', notes:'Improves effective savings rate' },
+    { name:'Spot by NetApp', cov:'AWS/Azure/GCP', best:'Automated spot & elast. compute', notes:'Infra automation for savings' },
+    { name:'Kubecost', cov:'Kubernetes (any cloud/on‑prem)', best:'Per‑namespace/service K8s costs', notes:'Opensource; great for K8s chargeback' },
+  ];
+  const vendorBody = document.getElementById('vendor-table-body');
+  const vendorSearch = document.getElementById('vendor-search');
+
+  function renderVendors(q=''){
+    const s = q.trim().toLowerCase();
+    const list = vendors.filter(v =>
+      v.name.toLowerCase().includes(s) || v.cov.toLowerCase().includes(s) ||
+      v.best.toLowerCase().includes(s) || v.notes.toLowerCase().includes(s)
+    );
+    vendorBody.innerHTML = (list.length? list : [{name:'No results', cov:'—', best:'—', notes:'Try another search'}])
+      .map(v => `
+        <tr class="border-b border-slate-100 last:border-b-0 hover:bg-slate-50 transition-colors">
+          <td class="p-4 font-medium text-slate-800">${v.name}</td>
+          <td class="p-4 text-slate-600">${v.cov}</td>
+          <td class="p-4 text-slate-600">${v.best}</td>
+          <td class="p-4 text-slate-600">${v.notes}</td>
+        </tr>
+      `).join('');
+  }
+  renderVendors();
+  vendorSearch.addEventListener('input', e => renderVendors(e.target.value));
+
+  // Mobile nav
+  const mobileNav = document.getElementById('mobile-nav');
+  mobileNav.addEventListener('change', e => { window.location.hash = e.target.value; });
+});
+</script>
+</body>
+</html>

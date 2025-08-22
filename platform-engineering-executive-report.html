@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Platform Engineering — 2025 Executive Report</title>
+<meta name="description" content="Executive-ready overview of Platform Engineering (2025): adoption, outcomes, building blocks, vendors, cloud patterns, AI, pitfalls, KPIs, and roadmap." />
+
+<style>
+  :root {
+    --bg: #0b0f14;
+    --panel: #0f1720;
+    --text: #e5eef8;
+    --muted: #a9b8c9;
+    --brand: #5ac8fa;
+    --brand-2: #7ee787;
+    --accent: #f4d35e;
+    --border: #223041;
+    --link: #8ab4f8;
+    --code: #1a2432;
+    --shadow: rgba(0,0,0,.3);
+  }
+  [data-theme="light"] {
+    --bg: #f7fafc;
+    --panel: #ffffff;
+    --text: #0e1621;
+    --muted: #4b5563;
+    --brand: #0ea5e9;
+    --brand-2: #16a34a;
+    --accent: #f59e0b;
+    --border: #e5e7eb;
+    --link: #1d4ed8;
+    --code: #f3f4f6;
+    --shadow: rgba(0,0,0,.08);
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+    line-height: 1.6;
+  }
+
+  .app {
+    display: grid;
+    grid-template-columns: 290px 1fr;
+    min-height: 100vh;
+  }
+
+  nav {
+    position: sticky;
+    top: 0;
+    align-self: start;
+    height: 100vh;
+    overflow: auto;
+    border-right: 1px solid var(--border);
+    background: linear-gradient(180deg, var(--panel), rgba(0,0,0,0));
+    box-shadow: 0 0 40px var(--shadow);
+  }
+
+  .brand {
+    padding: 20px 18px 12px 18px;
+    border-bottom: 1px solid var(--border);
+  }
+  .brand h1 {
+    margin: 0 0 4px 0;
+    font-size: 18px;
+    letter-spacing: .4px;
+  }
+  .brand .sub {
+    color: var(--muted);
+    font-size: 12px;
+  }
+
+  .controls {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .controls input[type="search"] {
+    flex: 1;
+    border: 1px solid var(--border);
+    background: var(--panel);
+    color: var(--text);
+    border-radius: 10px;
+    padding: 10px 12px;
+    outline: none;
+  }
+  .controls button {
+    border: 1px solid var(--border);
+    background: var(--panel);
+    color: var(--text);
+    border-radius: 10px;
+    padding: 10px 12px;
+    cursor: pointer;
+  }
+
+  .toc {
+    padding: 8px 8px 80px 8px;
+    list-style: none;
+    margin: 0;
+  }
+  .toc li {
+    margin: 2px 0;
+  }
+  .toc a {
+    display: block;
+    text-decoration: none;
+    color: var(--text);
+    padding: 8px 10px;
+    border-radius: 10px;
+  }
+  .toc a:hover, .toc a.active {
+    background: rgba(90,200,250,0.12);
+    color: var(--brand);
+  }
+
+  main {
+    padding: 32px 48px;
+  }
+  header.top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  header.top .title {
+    display: flex; gap: 12px; align-items: center;
+  }
+  .tag {
+    font-size: 12px; color: var(--brand-2);
+    border: 1px solid var(--border);
+    background: rgba(23, 199, 111, .08);
+    padding: 3px 8px; border-radius: 999px;
+  }
+
+  section {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 22px 24px;
+    margin-bottom: 16px;
+    box-shadow: 0 10px 26px var(--shadow);
+  }
+  section h2 {
+    margin-top: 0;
+    font-size: 22px;
+    letter-spacing: .2px;
+  }
+  h3 {
+    margin-bottom: 6px;
+  }
+  p, li {
+    color: var(--text);
+  }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .callout {
+    border-left: 3px solid var(--brand);
+    padding-left: 12px;
+    color: var(--muted);
+  }
+
+  .kpi {
+    display: grid; gap: 8px;
+    grid-template-columns: 32px 1fr;
+    align-items: start;
+    padding: 12px;
+    border-radius: 12px;
+    background: var(--code);
+    border: 1px solid var(--border);
+  }
+
+  .chip {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--panel);
+    margin: 2px 6px 2px 0;
+    font-size: 12px;
+  }
+
+  code, pre {
+    background: var(--code);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 2px 6px;
+  }
+
+  footer {
+    color: var(--muted);
+    text-align: center;
+    margin: 22px 0 50px;
+  }
+
+  .toplink {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    background: var(--brand);
+    color: #041016;
+    border-radius: 999px;
+    padding: 10px 14px;
+    text-decoration: none;
+    box-shadow: 0 12px 20px var(--shadow);
+    font-weight: 600;
+  }
+
+  @media (max-width: 1024px) {
+    .app { grid-template-columns: 1fr; }
+    nav { position: relative; height: auto; }
+    .controls { position: sticky; top: 0; z-index: 2; background: var(--panel); }
+  }
+
+  /* Print-friendly */
+  @media print {
+    nav, .toplink { display: none !important; }
+    main { padding: 0; }
+    section { break-inside: avoid-page; }
+  }
+</style>
+</head>
+<body data-theme="dark">
+  <div class="app">
+    <nav>
+      <div class="brand">
+        <h1>Platform Engineering</h1>
+        <div class="sub">Executive Report • Updated August 16, 2025 (IST)</div>
+      </div>
+      <div class="controls">
+        <input type="search" id="filter" placeholder="Filter sections…" />
+        <button id="themeBtn" title="Toggle theme">🌓</button>
+      </div>
+      <ul class="toc" id="toc">
+        <!-- Table of contents will be injected -->
+      </ul>
+    </nav>
+
+    <main>
+      <header class="top" id="top">
+        <div class="title">
+          <h1 style="margin:0;">2025 State of Platform Engineering</h1>
+          <span class="tag">Exec-ready</span>
+        </div>
+        <div style="color:var(--muted); font-size:14px;">Prepared for leadership decisions in 2025–2026</div>
+      </header>
+
+      <section id="exec-summary">
+        <h2>Executive Summary</h2>
+        <div class="grid-2">
+          <div>
+            <p><strong>Adoption:</strong> Platform engineering (PE) has moved firmly into the mainstream across large engineering organizations. Leaders invest to accelerate delivery, unify security & compliance, and reduce cognitive load on product teams.</p>
+            <p><strong>Primary UX:</strong> Internal developer portals (IDPs) now front most platforms, offering service catalogs, templates (“golden paths”), scorecards, and self-service environments.</p>
+          </div>
+          <div>
+            <p><strong>Performance Link:</strong> Teams with platform capabilities consistently report better delivery (DORA metrics), reliability, and developer experience when platforms are product-managed and user-centered.</p>
+            <p><strong>What’s Next:</strong> AI-assisted operations and guardrail-aware templates are becoming standard; expect tighter convergence of DevEx, security policy, and FinOps inside IDPs.</p>
+          </div>
+        </div>
+        <div class="callout"><em>Bottom line:</em> The strategic question is no longer “Should we build a platform?” but “How do we scale a product-managed platform and demonstrate ROI against business outcomes?”</div>
+      </section>
+
+      <section id="what-is-pe">
+        <h2>1) What Platform Engineering Is (2025)</h2>
+        <p>Platform engineering delivers a <strong>product-managed, self-service</strong> layer that abstracts infrastructure and operational complexity behind <strong>opinionated templates/golden paths</strong>. The goal is to maximize developer flow while embedding security, reliability, and cost controls by default.</p>
+        <p><strong>Golden paths</strong> are pre-approved ways of building and shipping that wire CI/CD, infra, policy, observability and SLOs on day one—<em>steering, not blocking</em>, product teams.</p>
+        <div>
+          <span class="chip">Self-service</span>
+          <span class="chip">Golden paths</span>
+          <span class="chip">Policy as code</span>
+          <span class="chip">Scorecards</span>
+          <span class="chip">Developer portal</span>
+          <span class="chip">SLOs/XLOs</span>
+        </div>
+      </section>
+
+      <section id="adoption">
+        <h2>2) Adoption & Maturity Trends</h2>
+        <ul>
+          <li><strong>Mainstreaming:</strong> Most large orgs now operate platform teams; mid-market adoption is accelerating.</li>
+          <li><strong>Depth of use:</strong> Mature orgs report 3–5 years of platform evolution, moving from “launch” to “optimize.”</li>
+          <li><strong>IDP momentum:</strong> Backstage remains the dominant open-source backbone; commercial portals (Port, Harness IDP, Atlassian Compass, Cortex, OpsLevel) expand scorecards and governance.</li>
+          <li><strong>From infra to product:</strong> Successful teams treat the platform as a product with PM, support, docs, and telemetry.</li>
+        </ul>
+      </section>
+
+      <section id="outcomes">
+        <h2>3) Outcomes Leaders Track</h2>
+        <div class="grid-3">
+          <div class="kpi">
+            <div>🚀</div>
+            <div><strong>Delivery</strong><br/>Deployment frequency, lead time for changes, change-failure rate, MTTR.</div>
+          </div>
+          <div class="kpi">
+            <div>🛡️</div>
+            <div><strong>Security & Compliance</strong><br/>Policy-as-code coverage, vulnerability gates, dependency freshness, SBOMs.</div>
+          </div>
+          <div class="kpi">
+            <div>💙</div>
+            <div><strong>DevEx</strong><br/>Onboarding time, time-to-first-PR, self-service adoption, platform NPS.</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="building-blocks">
+        <h2>4) Core Building Blocks</h2>
+        <h3>Experience & Portal</h3>
+        <ul>
+          <li><strong>Service & resource catalog</strong> with ownership, runbooks, docs, extensions.</li>
+          <li><strong>Scorecards</strong> to codify standards (SLOs, on-call, vuln scans, test thresholds).</li>
+        </ul>
+        <h3>Golden Paths & Templates</h3>
+        <ul>
+          <li>Self-service scaffolding that wires CI/CD, IaC, policy gates and observability.</li>
+          <li>Starter kits for <em>secure microservice</em>, <em>data/ML pipeline</em>, <em>mobile app</em>, etc.</li>
+        </ul>
+        <h3>Environments-as-a-Service (EaaS)</h3>
+        <ul>
+          <li>Pre-approved dev/test/prod environments; ephemeral PR envs; cost & quota policies.</li>
+        </ul>
+        <h3>CI/CD & GitOps</h3>
+        <ul>
+          <li>Pipelines as product; progressive delivery; automated quality & security checks.</li>
+        </ul>
+        <h3>Observability & Reliability</h3>
+        <ul>
+          <li>Default dashboards, traces, and <strong>SLOs</strong> per service; explore <strong>XLOs</strong> to link reliability to UX.</li>
+        </ul>
+        <h3>Cost & FinOps Integration</h3>
+        <ul>
+          <li>Golden paths include telemetry and budgets; “cost as a guardrail,” not a post-hoc report.</li>
+        </ul>
+      </section>
+
+      <section id="landscape">
+        <h2>5) Vendor & Open-Source Landscape</h2>
+        <ul>
+          <li><strong>Open-source IDP:</strong> Backstage (CNCF) as the de-facto framework and plugin ecosystem.</li>
+          <li><strong>Commercial IDPs/portals:</strong> Port, Harness IDP, Atlassian Compass, Cortex, OpsLevel (scorecards/governance). Expect consolidation and AI assistants.</li>
+          <li><strong>Infra-first vs portal-first:</strong> Many enterprises blend an infra-first approach (policy/cost baked in) with a portal-first experience.</li>
+        </ul>
+      </section>
+
+      <section id="cloud">
+        <h2>6) How Hyperscalers Support PE</h2>
+        <div class="grid-3">
+          <div>
+            <h3>AWS</h3>
+            <ul>
+              <li><strong>Proton</strong> for versioned service/infra templates.</li>
+              <li><strong>Service Catalog</strong> & <strong>Control Tower</strong> for account/guardrail factories.</li>
+              <li><strong>CodeCatalyst</strong> / Backstage plugins for dev experience.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Microsoft Azure</h3>
+            <ul>
+              <li><strong>Deployment Environments</strong> (Dev Center) for EaaS.</li>
+              <li><strong>Dev Box</strong> for governed cloud workstations.</li>
+              <li><strong>azd</strong> templates to codify golden paths and hook CI/CD.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Google Cloud</h3>
+            <ul>
+              <li>Guidance on <strong>golden paths</strong> and platform control mechanisms.</li>
+              <li>Reference implementations for <strong>Backstage</strong> on Cloud Run/GKE.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="ai">
+        <h2>7) AI + Platform Engineering (What’s Real Now)</h2>
+        <ul>
+          <li><strong>Agentic operations:</strong> SRE/ops agents for incident analysis, remediation suggestions, change-risk insights.</li>
+          <li><strong>Template copilots:</strong> Guided template selection, policy explanations, doc/runbook chat; reduces onboarding time and drift.</li>
+        </ul>
+      </section>
+
+      <section id="pitfalls">
+        <h2>8) Common Pitfalls (and How to Avoid Them)</h2>
+        <ul>
+          <li><strong>“Build it and they will come.”</strong> Treat the platform as a product; start with a lighthouse use-case.</li>
+          <li><strong>Portal without foundations (or vice-versa).</strong> Balance developer experience with infra guardrails.</li>
+          <li><strong>Over-customization.</strong> Prefer standards and plugins over bespoke stacks.</li>
+          <li><strong>Unmeasured success.</strong> Tie platform backlog to DORA/DevEx goals; publish scorecards and SLO/XLO targets.</li>
+        </ul>
+      </section>
+
+      <section id="kpis">
+        <h2>9) KPIs & Governance (Practical 2025 Set)</h2>
+        <div class="grid-3">
+          <div>
+            <h3>Flow & Reliability</h3>
+            <ul>
+              <li>DORA Four + MTTR</li>
+              <li>% automated change approvals</li>
+              <li>Change-failure rate</li>
+            </ul>
+          </div>
+          <div>
+            <h3>DevEx</h3>
+            <ul>
+              <li>Onboarding time</li>
+              <li>Time-to-first-PR</li>
+              <li>Self-service adoption, platform NPS</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Security & Cost</h3>
+            <ul>
+              <li>% services meeting scorecard baselines</li>
+              <li>Dependency freshness, SBOM coverage</li>
+              <li>Cost per service/team; budget adherence</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="roadmap">
+        <h2>10) 12-Month Roadmap (Template)</h2>
+        <ol>
+          <li><strong>Align & Fund</strong> — OKRs tied to DORA + DevEx + Security + Cost. Select one high-value golden path (e.g., secure microservice on K8s with SLOs).</li>
+          <li><strong>Bootstrap Platform Slice</strong> — Choose IDP spine (Backstage or commercial) + infra guardrails (IaC, policy, secrets). Stand up EaaS.</li>
+          <li><strong>Ship the Lighthouse</strong> — Deliver one golden path end-to-end with embedded checks; measure before/after.</li>
+          <li><strong>Scale & Productize</strong> — Add PM, support, docs, telemetry; quarterly scorecard campaigns; expand to data/ML & mobile templates.</li>
+          <li><strong>Infuse AI</strong> — Pilot ops agents and template copilots; integrate with incident/change workflows.</li>
+        </ol>
+      </section>
+
+      <section id="watchlist">
+        <h2>11) Market & Ecosystem Watch-List (H2-2025 → 2026)</h2>
+        <ul>
+          <li>Broader use of CNCF maturity models to sequence investment.</li>
+          <li>Convergence of DevEx + Security + FinOps inside IDPs and pipelines.</li>
+          <li>Backstage plugin ecosystem expansion; commercial IDPs race on governance & AI.</li>
+          <li>Cloud-native EaaS hardening across AWS, Azure, GCP.</li>
+        </ul>
+      </section>
+
+      <section id="references">
+        <h2>12) References & Further Reading</h2>
+        <p class="callout">This report synthesizes the latest public research and ecosystem guidance from the past 12–18 months. Key sources include industry reports and vendor documentation.</p>
+        <ul>
+          <li>Gartner outlook on Platform Engineering adoption</li>
+          <li>Puppet: <em>State of DevOps</em> (Platform Engineering editions)</li>
+          <li>DORA: <em>Accelerate State of DevOps</em> (2024)</li>
+          <li>CNCF Platforms whitepapers and maturity models</li>
+          <li>Backstage (CNCF), Port, Harness IDP, Atlassian Compass, Cortex, OpsLevel docs</li>
+          <li>AWS Proton / Service Catalog / CodeCatalyst; Azure Dev Center & Dev Box; Google Cloud guidance on golden paths & Backstage</li>
+        </ul>
+      </section>
+
+      <section id="appendix">
+        <h2>Appendix: Glossary</h2>
+        <ul>
+          <li><strong>IDP (Internal Developer Portal):</strong> The UI/UX layer for the platform (catalog, templates, scorecards, self-service).</li>
+          <li><strong>Golden Path:</strong> Pre-approved, opinionated template/path for building and shipping software safely.</li>
+          <li><strong>Scorecard:</strong> A health/standards checklist (SLOs, on-call, tests, security) tracked per service/team.</li>
+          <li><strong>EaaS:</strong> Environments-as-a-Service with policy-governed, on-demand provisioning.</li>
+          <li><strong>XLO:</strong> Experience-level objective—reliability targets expressed in user terms.</li>
+        </ul>
+      </section>
+
+      <footer>
+        © August 16, 2025 05:02 • Platform Engineering Executive Report • Single-file HTML
+      </footer>
+    </main>
+  </div>
+
+  <a href="#top" class="toplink" title="Back to top">↑ Top</a>
+
+  <script>
+    // Theme toggle with localStorage
+    const root = document.body;
+    const btn = document.getElementById('themeBtn');
+    const current = localStorage.getItem('pe_theme') || 'dark';
+    root.setAttribute('data-theme', current);
+    btn.addEventListener('click', () => {
+      const now = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', now);
+      localStorage.setItem('pe_theme', now);
+    });
+
+    // Build TOC
+    const toc = document.getElementById('toc');
+    const sections = Array.from(document.querySelectorAll('main section'));
+    const entries = sections.map(sec => ({ 
+      id: sec.id,
+      title: sec.querySelector('h2').textContent
+    }));
+    entries.forEach(e => {
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = '#' + e.id;
+      a.textContent = e.title;
+      li.appendChild(a);
+      toc.appendChild(li);
+    });
+
+    // Active link highlight on scroll
+    const links = Array.from(toc.querySelectorAll('a'));
+    const observer = new IntersectionObserver((ioEntries) => {
+      ioEntries.forEach(({ isIntersecting, target }) => {
+        if (isIntersecting) {
+          links.forEach(l => l.classList.remove('active'));
+          const active = toc.querySelector(`a[href="#${target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: "-40% 0px -55% 0px", threshold: 0.01 });
+    sections.forEach(s => observer.observe(s));
+
+    // Filter sections by search
+    const filter = document.getElementById('filter');
+    const normalize = s => s.toLowerCase().replace(/[^a-z0-9 ]/g, ' ');
+    filter.addEventListener('input', (e) => {
+      const q = normalize(e.target.value);
+      sections.forEach(sec => {
+        const text = normalize(sec.innerText);
+        sec.style.display = text.includes(q) ? '' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>
