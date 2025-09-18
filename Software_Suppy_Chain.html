@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/brand-header.css">
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -102,6 +103,25 @@
     </style>
 </head>
 <body class="smooth-scroll p-4">
+    <header class="brand-header">
+        <div class="brand-header__bar">
+            <a href="index.html" class="brand-header__identity" aria-label="Brightscale Partners home">
+                <span class="brand-header__glyph" aria-hidden="true">SE</span>
+                <span class="brand-header__lockup">
+                    <span>Software Advisory</span>
+                    <span>Brightscale Partners</span>
+                </span>
+            </a>
+            <nav class="brand-header__nav" aria-label="Primary">
+                <a class="brand-header__link" href="index.html#services">Services</a>
+                <a class="brand-header__link" href="index.html#industries">Industries</a>
+                <a class="brand-header__link" href="index.html#explore">Insights</a>
+                <a class="brand-header__link" href="index.html#about">About</a>
+                <a class="brand-header__link" href="index.html#contact">Contact</a>
+            </nav>
+            <a class="brand-header__cta" href="mailto:hello@brightscale.partners">Talk to an Expert</a>
+        </div>
+    </header>
     <!-- Navigation Bar -->
     <nav class="bg-gray-800 p-4 shadow-md sticky top-0 z-50 rounded-lg">
         <div class="container mx-auto flex flex-col md:flex-row items-center justify-between">

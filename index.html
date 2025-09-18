@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/brand-header.css">
   <style>
     body {
       font-family: 'Inter', sans-serif;
@@ -56,38 +57,55 @@
 <body id="top" class="min-h-screen flex flex-col">
   <main class="flex-1">
     <div class="max-w-6xl mx-auto px-6 py-12 space-y-16">
-      <header class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-950 via-blue-900 to-cyan-700 text-white shadow-xl">
-        <div class="absolute -top-32 -right-24 h-72 w-72 rounded-full bg-cyan-400/40 blur-3xl"></div>
-        <div class="absolute -bottom-32 -left-24 h-72 w-72 rounded-full bg-indigo-500/40 blur-3xl"></div>
-        <div class="relative px-8 py-16 sm:px-12 lg:px-16">
-          <p class="text-sm font-semibold uppercase tracking-[0.35em] text-sky-200">Insight Library</p>
-          <h1 class="mt-4 text-3xl sm:text-4xl md:text-5xl font-bold leading-tight max-w-3xl">
+      <header class="brand-header brand-header--on-dark relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-950 via-blue-900 to-cyan-700 text-white shadow-xl">
+        <div class="absolute -top-32 -right-24 h-72 w-72 rounded-full bg-cyan-400/40 blur-3xl" aria-hidden="true"></div>
+        <div class="absolute -bottom-32 -left-24 h-72 w-72 rounded-full bg-indigo-500/40 blur-3xl" aria-hidden="true"></div>
+        <div class="brand-header__bar relative z-10 w-full">
+          <a href="index.html" class="brand-header__identity" aria-label="Brightscale Partners home">
+            <span class="brand-header__glyph" aria-hidden="true">SE</span>
+            <span class="brand-header__lockup">
+              <span>Software Advisory</span>
+              <span>Brightscale Partners</span>
+            </span>
+          </a>
+          <nav class="brand-header__nav" aria-label="Primary">
+            <a class="brand-header__link" href="index.html#services">Services</a>
+            <a class="brand-header__link" href="index.html#industries">Industries</a>
+            <a class="brand-header__link" href="index.html#explore">Insights</a>
+            <a class="brand-header__link" href="index.html#about">About</a>
+            <a class="brand-header__link" href="index.html#contact">Contact</a>
+          </nav>
+          <a class="brand-header__cta" href="mailto:hello@brightscale.partners">Talk to an Expert</a>
+        </div>
+        <div class="brand-hero relative z-10 text-white">
+          <p class="brand-hero__eyebrow text-sky-200">Insight Library</p>
+          <h1 class="brand-hero__title mt-4 text-3xl sm:text-4xl md:text-5xl max-w-3xl">
             Software Engineering Knowledge Hub
           </h1>
-          <p class="mt-6 max-w-2xl text-lg text-slate-100/85">
+          <p class="brand-hero__lede text-slate-100/85">
             Curated research, executive briefings, and interactive explorations to help teams build resilient, scalable, and
             human-centred software.
           </p>
-          <div class="mt-8 flex flex-wrap gap-4">
-            <a href="#explore" class="inline-flex items-center justify-center rounded-full bg-white/90 px-5 py-2 text-sm font-semibold text-slate-900 shadow-lg shadow-cyan-900/20 transition hover:-translate-y-0.5 hover:bg-white">
+          <div class="brand-hero__actions">
+            <a href="#explore" class="brand-hero__action-primary">
               Explore Reports
             </a>
-            <a href="#unit-testing" class="inline-flex items-center justify-center rounded-full border border-white/70 px-5 py-2 text-sm font-semibold text-white backdrop-blur transition hover:-translate-y-0.5 hover:bg-white/10">
+            <a href="#unit-testing" class="brand-hero__action-secondary">
               Discover Unit Testing Insights
             </a>
           </div>
-          <dl class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3 text-left">
-            <div class="rounded-2xl bg-white/10 px-6 py-5 backdrop-blur">
-              <dt class="text-xs uppercase tracking-wide text-slate-200">Reports & Guides</dt>
-              <dd class="mt-2 text-3xl font-semibold">10+</dd>
+          <dl class="brand-hero__stats">
+            <div class="brand-hero__stat-card">
+              <dt class="brand-hero__stat-label">Reports & Guides</dt>
+              <dd class="brand-hero__stat-value">10+</dd>
             </div>
-            <div class="rounded-2xl bg-white/10 px-6 py-5 backdrop-blur">
-              <dt class="text-xs uppercase tracking-wide text-slate-200">Focus Areas</dt>
-              <dd class="mt-2 text-3xl font-semibold">7</dd>
+            <div class="brand-hero__stat-card">
+              <dt class="brand-hero__stat-label">Focus Areas</dt>
+              <dd class="brand-hero__stat-value">7</dd>
             </div>
-            <div class="rounded-2xl bg-white/10 px-6 py-5 backdrop-blur">
-              <dt class="text-xs uppercase tracking-wide text-slate-200">Interactive Deep Dives</dt>
-              <dd class="mt-2 text-3xl font-semibold">4</dd>
+            <div class="brand-hero__stat-card">
+              <dt class="brand-hero__stat-label">Interactive Deep Dives</dt>
+              <dd class="brand-hero__stat-value">4</dd>
             </div>
           </dl>
         </div>

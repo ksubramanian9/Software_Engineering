@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/brand-header.css">
     <!-- Chosen Palette: Cool Blues & Grays -->
     <!-- Application Structure Plan: The application is designed as an interactive, linear flowchart representing the code pipeline. This structure was chosen because it visually mirrors the actual process, making the flow of code from development to production intuitive and easy to follow. Users can click on each distinct stage of the pipeline (e.g., 'Collaborate', 'CI', 'CD') to reveal a detailed explanation below. This approach provides a high-level overview while allowing for self-paced, deep dives into specific topics, which is more engaging and effective for learning than a static document or a tabbed interface. -->
     <!-- Visualization & Content Choices: 
@@ -88,6 +89,25 @@
     </style>
 </head>
 <body class="antialiased">
+    <header class="brand-header">
+        <div class="brand-header__bar">
+            <a href="index.html" class="brand-header__identity" aria-label="Brightscale Partners home">
+                <span class="brand-header__glyph" aria-hidden="true">SE</span>
+                <span class="brand-header__lockup">
+                    <span>Software Advisory</span>
+                    <span>Brightscale Partners</span>
+                </span>
+            </a>
+            <nav class="brand-header__nav" aria-label="Primary">
+                <a class="brand-header__link" href="index.html#services">Services</a>
+                <a class="brand-header__link" href="index.html#industries">Industries</a>
+                <a class="brand-header__link" href="index.html#explore">Insights</a>
+                <a class="brand-header__link" href="index.html#about">About</a>
+                <a class="brand-header__link" href="index.html#contact">Contact</a>
+            </nav>
+            <a class="brand-header__cta" href="mailto:hello@brightscale.partners">Talk to an Expert</a>
+        </div>
+    </header>
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div class="flex justify-end mb-8">
             <a href="index.html" class="home-button" aria-label="Return to the home page">← Home</a>
