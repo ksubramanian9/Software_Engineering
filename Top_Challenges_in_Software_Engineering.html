@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/brand-header.css">
     <!-- Chosen Palette: Warm Neutral Harmony -->
     <!-- Application Structure Plan: A dashboard-style SPA featuring a central interactive radar chart for a high-level overview, key statistic cards for quick insights, and three thematic sections (Technology, Process, People) to group related challenges. Clicking any challenge (on the chart or in a section) reveals a detailed, dynamically-populated content pane. This structure was chosen to transform the linear report into an exploratory experience, highlighting the interconnectedness of the challenges and allowing users to move from a broad summary to deep-dive analysis intuitively, which enhances usability and comprehension over a simple text layout. -->
     <!-- Visualization & Content Choices: 
@@ -89,8 +90,28 @@
 </head>
 <body class="antialiased">
 
-    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-30 shadow-sm">
-        <nav class="container mx-auto px-6 py-4">
+    <header class="brand-header">
+        <div class="brand-header__bar">
+            <a href="index.html" class="brand-header__identity" aria-label="Brightscale Partners home">
+                <span class="brand-header__glyph" aria-hidden="true">SE</span>
+                <span class="brand-header__lockup">
+                    <span>Software Advisory</span>
+                    <span>Brightscale Partners</span>
+                </span>
+            </a>
+            <nav class="brand-header__nav" aria-label="Primary">
+                <a class="brand-header__link" href="index.html#services">Services</a>
+                <a class="brand-header__link" href="index.html#industries">Industries</a>
+                <a class="brand-header__link" href="index.html#explore">Insights</a>
+                <a class="brand-header__link" href="index.html#about">About</a>
+                <a class="brand-header__link" href="index.html#contact">Contact</a>
+            </nav>
+            <a class="brand-header__cta" href="mailto:hello@brightscale.partners">Talk to an Expert</a>
+        </div>
+    </header>
+
+    <nav class="bg-white/80 backdrop-blur-lg sticky top-0 z-30 shadow-sm">
+        <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between gap-4">
                 <div class="flex items-center gap-4">
                     <h1 class="text-xl md:text-2xl font-bold text-emerald-700">Software Engineering Challenges</h1>
@@ -104,8 +125,8 @@
                     <a href="#forward" class="nav-link border-b-2 border-transparent hover:text-emerald-600 pb-1">Path Forward</a>
                 </div>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
 
     <main class="container mx-auto px-6 py-8 md:py-12">
 
