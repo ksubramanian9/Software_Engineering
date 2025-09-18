@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Modern Software Code Pipeline</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Cool Blues & Grays -->
+    <!-- Application Structure Plan: The application is designed as an interactive, linear flowchart representing the code pipeline. This structure was chosen because it visually mirrors the actual process, making the flow of code from development to production intuitive and easy to follow. Users can click on each distinct stage of the pipeline (e.g., 'Collaborate', 'CI', 'CD') to reveal a detailed explanation below. This approach provides a high-level overview while allowing for self-paced, deep dives into specific topics, which is more engaging and effective for learning than a static document or a tabbed interface. -->
+    <!-- Visualization & Content Choices: 
+        - Pipeline Flow: Goal(Organize) -> Interactive Horizontal Flowchart. Interaction(Click stage to view details). Justification(Visually represents the process). Method(HTML/CSS Flexbox, JS).
+        - Branching Strategies: Goal(Compare) -> Toggleable content cards. Interaction(Click buttons to switch view). Justification(Allows direct comparison of complex workflows). Method(JS).
+        - Cost of Bugs Chart: Goal(Change/Inform) -> Line Chart. Interaction(Hover for details, animates on view). Justification(Powerfully visualizes the core value proposition of CI/CD). Library(Chart.js).
+        - Quality Gates: Goal(Inform) -> Static metric cards. Interaction(Hover effect). Justification(Presents key data points in a scannable format). Method(HTML/CSS).
+        - Deployment Strategies: Goal(Compare) -> Clickable detailed sections. Interaction(Click to expand/reveal info). Justification(Clearly differentiates complex deployment patterns). Method(JS).
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+            color: #1e293b; /* slate-800 */
+        }
+        .pipeline-stage {
+            transition: all 0.3s ease;
+            border-bottom: 4px solid transparent;
+        }
+        .pipeline-stage.active {
+            border-bottom-color: #0ea5e9; /* sky-500 */
+            transform: translateY(-4px);
+            background-color: white;
+        }
+        .pipeline-connector {
+            flex-grow: 1;
+            height: 2px;
+            background-color: #cbd5e1; /* slate-300 */
+        }
+        #details-content {
+            transition: opacity 0.5s ease;
+        }
+        .content-hidden {
+            display: none;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .control-btn {
+            transition: background-color 0.2s ease;
+        }
+        .control-btn.active {
+            background-color: #0ea5e9; /* sky-500 */
+            color: white;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-slate-900">The Modern Software Code Pipeline</h1>
+            <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">An interactive journey from a line of code to a live feature in production. Click on any stage below to explore it in detail.</p>
+        </header>
+
+        <nav id="pipeline-nav" class="mb-12">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div data-stage="collaborate" class="pipeline-stage active cursor-pointer bg-slate-100 rounded-lg shadow-sm p-4 w-full md:w-auto text-center">
+                    <h2 class="font-bold text-slate-800">1. Collaborate</h2>
+                    <p class="text-sm text-slate-500">Teamwork & Version Control</p>
+                </div>
+                <div class="pipeline-connector hidden md:block"></div>
+                <div data-stage="ci" class="pipeline-stage cursor-pointer bg-slate-100 rounded-lg shadow-sm p-4 w-full md:w-auto text-center">
+                    <h2 class="font-bold text-slate-800">2. Continuous Integration</h2>
+                    <p class="text-sm text-slate-500">Build, Analyze & Test</p>
+                </div>
+                <div class="pipeline-connector hidden md:block"></div>
+                <div data-stage="gates" class="pipeline-stage cursor-pointer bg-slate-100 rounded-lg shadow-sm p-4 w-full md:w-auto text-center">
+                    <h2 class="font-bold text-slate-800">3. Quality Gates</h2>
+                    <p class="text-sm text-slate-500">Package & Validate</p>
+                </div>
+                <div class="pipeline-connector hidden md:block"></div>
+                <div data-stage="cd" class="pipeline-stage cursor-pointer bg-slate-100 rounded-lg shadow-sm p-4 w-full md:w-auto text-center">
+                    <h2 class="font-bold text-slate-800">4. Continuous Deployment</h2>
+                    <p class="text-sm text-slate-500">Release to Users</p>
+                </div>
+                <div class="pipeline-connector hidden md:block"></div>
+                 <div data-stage="monitor" class="pipeline-stage cursor-pointer bg-slate-100 rounded-lg shadow-sm p-4 w-full md:w-auto text-center">
+                    <h2 class="font-bold text-slate-800">5. Monitor</h2>
+                    <p class="text-sm text-slate-500">Observe & Improve</p>
+                </div>
+            </div>
+        </nav>
+
+        <main id="details-content" class="bg-white p-6 sm:p-8 rounded-xl shadow-lg border border-slate-200 min-h-[500px]">
+            <!-- Content will be injected here -->
+        </main>
+    </div>
+
+    <!-- Templates for each stage -->
+    <template id="template-collaborate">
+        <div class="stage-content">
+            <h3 class="text-3xl font-bold text-slate-800 mb-4">Stage 1: Collaboration & Version Control</h3>
+            <p class="text-slate-600 mb-8">This initial stage is the foundation of the entire pipeline, focusing on how developers work together to write and manage code. Effective collaboration prevents conflicts and ensures a stable codebase. The cornerstone of this is Version Control, with Git being the industry standard.</p>
+            
+            <h4 class="text-xl font-semibold text-slate-700 mb-4">Branching Strategies Comparison</h4>
+            <p class="text-slate-600 mb-6">A branching strategy defines the rules for how developers create and merge code. Choosing the right one depends on team size, release frequency, and project complexity. Click below to compare popular strategies.</p>
+            <div class="flex space-x-2 rounded-lg bg-slate-100 p-1 mb-6 w-full md:w-auto">
+                <button class="control-btn active w-full md:w-auto px-4 py-2 text-sm rounded-md" data-target="gitflow">GitFlow</button>
+                <button class="control-btn w-full md:w-auto px-4 py-2 text-sm rounded-md" data-target="githubflow">GitHub Flow</button>
+                <button class="control-btn w-full md:w-auto px-4 py-2 text-sm rounded-md" data-target="trunkbased">Trunk-Based</button>
+            </div>
+            <div id="branching-details" class="p-6 bg-slate-50 rounded-lg border border-slate-200">
+                <!-- Branching details will be injected here -->
+            </div>
+        </div>
+    </template>
+    
+    <template id="template-ci">
+        <div class="stage-content">
+            <h3 class="text-3xl font-bold text-slate-800 mb-4">Stage 2: Continuous Integration (CI)</h3>
+            <p class="text-slate-600 mb-8">Continuous Integration is the practice of frequently merging all developers' code changes into a central repository, after which automated builds and tests are run. The goal is to detect integration issues as early as possible. This process is triggered automatically every time a developer commits new code.</p>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h4 class="text-xl font-semibold text-slate-700 mb-4">Key CI Activities</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="text-sky-500 font-bold mr-3 mt-1">✓</span>
+                            <div><strong class="text-slate-700">Static Code Analysis:</strong> Automated tools scan the code for style violations, potential bugs, and security vulnerabilities without executing it.</div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-sky-500 font-bold mr-3 mt-1">✓</span>
+                            <div><strong class="text-slate-700">Automated Testing:</strong> The system runs a suite of tests (especially Unit & Integration tests) to verify that the new code works as expected and doesn't break existing functionality.</div>
+                        </li>
+                         <li class="flex items-start">
+                            <span class="text-sky-500 font-bold mr-3 mt-1">✓</span>
+                            <div><strong class="text-slate-700">Build:</strong> The source code is compiled into an executable application or package. If the build fails, the pipeline stops and notifies the team immediately.</div>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold text-slate-700 mb-4 text-center">The Economic Impact of CI</h4>
+                    <div class="chart-container">
+                        <canvas id="costOfBugsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="template-gates">
+        <div class="stage-content">
+            <h3 class="text-3xl font-bold text-slate-800 mb-4">Stage 3: Quality Gates & Artifacts</h3>
+            <p class="text-slate-600 mb-8">After code is successfully built and tested in CI, it must pass through a series of Quality Gates before it can be packaged. These gates are automated checks that enforce standards and ensure only high-quality code proceeds. The output of this stage is a versioned, immutable "build artifact"—a packaged piece of software ready for deployment.</p>
+            
+            <h4 class="text-xl font-semibold text-slate-700 mb-6 text-center">Typical Quality Gate Metrics</h4>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-50 p-6 rounded-lg border border-slate-200 text-center">
+                    <div class="text-4xl font-bold text-sky-500">> 80%</div>
+                    <div class="mt-2 text-slate-600 font-medium">Code Coverage</div>
+                    <p class="text-sm text-slate-500 mt-2">Ensures that the majority of the code is covered by automated tests.</p>
+                </div>
+                 <div class="bg-slate-50 p-6 rounded-lg border border-slate-200 text-center">
+                    <div class="text-4xl font-bold text-sky-500">0</div>
+                    <div class="mt-2 text-slate-600 font-medium">Critical Security Flaws</div>
+                    <p class="text-sm text-slate-500 mt-2">Scans like SAST/DAST must not find any high-severity vulnerabilities.</p>
+                </div>
+                 <div class="bg-slate-50 p-6 rounded-lg border border-slate-200 text-center">
+                    <div class="text-4xl font-bold text-sky-500">100%</div>
+                    <div class="mt-2 text-slate-600 font-medium">Test Pass Rate</div>
+                    <p class="text-sm text-slate-500 mt-2">All unit, integration, and component tests must pass for the build to be considered stable.</p>
+                </div>
+            </div>
+             <div class="mt-8 bg-slate-100 p-6 rounded-lg">
+                <h4 class="font-semibold text-slate-800">The Build Artifact</h4>
+                <p class="text-slate-600 mt-2">The final output is stored in an artifact repository (like Nexus, Artifactory, or a container registry). This artifact is a single, reliable package that can be deployed to any environment, ensuring consistency from testing to production.</p>
+            </div>
+        </div>
+    </template>
+    
+    <template id="template-cd">
+        <div class="stage-content">
+            <h3 class="text-3xl font-bold text-slate-800 mb-4">Stage 4: Continuous Deployment (CD)</h3>
+            <p class="text-slate-600 mb-8">Continuous Deployment automates the release of the validated build artifact from the previous stage into a production environment. This process can be fully automated or include a manual approval step (which is then called Continuous Delivery). The goal is to make releases a low-risk, frequent, and reliable event.</p>
+            
+            <h4 class="text-xl font-semibold text-slate-700 mb-4">Common Deployment Strategies</h4>
+            <div class="space-y-6">
+                <div class="p-6 bg-slate-50 rounded-lg border border-slate-200">
+                    <h5 class="font-bold text-slate-700">Blue-Green Deployment</h5>
+                    <p class="text-slate-600 mt-2">This strategy involves running two identical production environments, "Blue" and "Green". At any time, only one is live. To release a new version, you deploy it to the idle environment, test it thoroughly, and then switch the router to send all live traffic to the new version. This allows for instant rollback if issues are found.</p>
+                </div>
+                <div class="p-6 bg-slate-50 rounded-lg border border-slate-200">
+                    <h5 class="font-bold text-slate-700">Canary Release</h5>
+                    <p class="text-slate-600 mt-2">The new version is rolled out incrementally to a small subset of users (the "canaries"). The team monitors key metrics for this group. If no errors are reported and the metrics are stable, the release is gradually rolled out to the rest of the user base. This minimizes the blast radius of any potential bugs.</p>
+                </div>
+                 <div class="p-6 bg-slate-50 rounded-lg border border-slate-200">
+                    <h5 class="font-bold text-slate-700">Rolling Deployment</h5>
+                    <p class="text-slate-600 mt-2">The new version is slowly deployed across the server fleet, replacing instances of the old version one by one or in batches. This is simpler than Blue-Green but can be harder to roll back, as for a period of time, both old and new versions are running simultaneously.</p>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="template-monitor">
+        <div class="stage-content">
+            <h3 class="text-3xl font-bold text-slate-800 mb-4">Stage 5: Monitor & Observe</h3>
+            <p class="text-slate-600 mb-8">The pipeline doesn't end at deployment. Once the code is live, robust monitoring and observability practices are essential to ensure the application is healthy and performing as expected. This stage provides the critical feedback loop that informs future development cycles.</p>
+            
+            <h4 class="text-xl font-semibold text-slate-700 mb-6 text-center">The Three Pillars of Observability</h4>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+                    <h5 class="font-bold text-slate-700 text-center">📊 Metrics</h5>
+                    <p class="text-sm text-slate-500 mt-2">Aggregated numerical data over time. Metrics help you understand the overall health of the system at a glance, such as CPU utilization, error rates, and request latency. They are great for creating dashboards and setting up alerts.</p>
+                </div>
+                 <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+                    <h5 class="font-bold text-slate-700 text-center">📄 Logs</h5>
+                    <p class="text-sm text-slate-500 mt-2">Timestamped, immutable records of discrete events. Logs provide detailed, granular context about what happened at a specific point in time. They are invaluable for debugging specific errors or tracing a particular user's journey.</p>
+                </div>
+                 <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+                    <h5 class="font-bold text-slate-700 text-center">🔍 Traces</h5>
+                    <p class="text-sm text-slate-500 mt-2">Show the entire lifecycle of a request as it moves through a distributed system. Traces connect individual events across multiple services, making it possible to identify performance bottlenecks and understand dependencies in a microservices architecture.</p>
+                </div>
+            </div>
+             <div class="mt-8 bg-slate-100 p-6 rounded-lg">
+                <h4 class="font-semibold text-slate-800">The Feedback Loop</h4>
+                <p class="text-slate-600 mt-2">Information gathered here—from error reports to performance data—directly informs the creation of new features and bug fixes, starting the entire pipeline over again. This continuous cycle of improvement is the core principle of modern DevOps.</p>
+            </div>
+        </div>
+    </template>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const pipelineStages = document.querySelectorAll('.pipeline-stage');
+            const detailsContent = document.getElementById('details-content');
+            let costOfBugsChartInstance = null;
+            
+            const branchingData = {
+                gitflow: {
+                    title: 'GitFlow',
+                    description: 'A robust model with dedicated branches for features, releases, and hotfixes, all branching from a central `develop` branch. It is very structured and ideal for projects with scheduled release cycles and a need for maintaining multiple versions in production.',
+                    bestFor: 'Projects with explicit versioning and scheduled releases.'
+                },
+                githubflow: {
+                    title: 'GitHub Flow',
+                    description: 'A simpler, lightweight model where `main` is always production-ready. Features are developed in descriptive branches off `main` and merged back in after review. It is optimized for teams that practice continuous deployment.',
+                    bestFor: 'Web applications and projects that deploy frequently.'
+                },
+                trunkbased: {
+                    title: 'Trunk-Based Development',
+                    description: 'All developers commit to a single shared branch (the "trunk," usually `main`). To avoid instability, changes are small and integrated frequently, often using feature flags to hide incomplete work. This model is essential for high-velocity CI/CD.',
+                    bestFor: 'Mature DevOps teams with high test automation.'
+                }
+            };
+
+            function updateBranchingDetails(strategy) {
+                const data = branchingData[strategy];
+                const container = document.getElementById('branching-details');
+                if (!container || !data) return;
+                
+                container.innerHTML = `
+                    <h5 class="font-bold text-lg text-slate-700">${data.title}</h5>
+                    <p class="text-slate-600 mt-2">${data.description}</p>
+                    <p class="text-sm text-slate-500 mt-4"><strong class="font-semibold text-slate-600">Best for:</strong> ${data.bestFor}</p>
+                `;
+            }
+
+            function updateContent(stageId) {
+                const template = document.getElementById(`template-${stageId}`);
+                if (!template) return;
+
+                detailsContent.style.opacity = 0;
+                setTimeout(() => {
+                    detailsContent.innerHTML = template.innerHTML;
+                    detailsContent.style.opacity = 1;
+
+                    if (stageId === 'collaborate') {
+                        const controlBtns = detailsContent.querySelectorAll('.control-btn');
+                        controlBtns.forEach(btn => {
+                            btn.addEventListener('click', () => {
+                                controlBtns.forEach(b => b.classList.remove('active'));
+                                btn.classList.add('active');
+                                updateBranchingDetails(btn.dataset.target);
+                            });
+                        });
+                        updateBranchingDetails('gitflow');
+                    }
+
+                    if (stageId === 'ci') {
+                        const ctx = document.getElementById('costOfBugsChart')?.getContext('2d');
+                        if (ctx) {
+                            if (costOfBugsChartInstance) {
+                                costOfBugsChartInstance.destroy();
+                            }
+                            costOfBugsChartInstance = new Chart(ctx, {
+                                type: 'line',
+                                data: {
+                                    labels: ['Development', 'CI Stage', 'QA Testing', 'Production'],
+                                    datasets: [{
+                                        label: 'Relative Cost to Fix a Bug',
+                                        data: [1, 5, 30, 100],
+                                        borderColor: '#0ea5e9',
+                                        backgroundColor: 'rgba(14, 165, 233, 0.1)',
+                                        fill: true,
+                                        tension: 0.2
+                                    }]
+                                },
+                                options: {
+                                    responsive: true,
+                                    maintainAspectRatio: false,
+                                    plugins: { legend: { display: false } },
+                                    scales: {
+                                        y: {
+                                            beginAtZero: true,
+                                            title: { display: true, text: 'Relative Cost (x)' }
+                                        }
+                                    }
+                                }
+                            });
+                        }
+                    }
+                }, 200);
+            }
+
+            pipelineStages.forEach(stage => {
+                stage.addEventListener('click', () => {
+                    pipelineStages.forEach(s => s.classList.remove('active'));
+                    stage.classList.add('active');
+                    updateContent(stage.dataset.stage);
+                });
+            });
+
+            updateContent('collaborate');
+        });
+    </script>
+</body>
+</html>
