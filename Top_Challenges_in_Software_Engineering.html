@@ -67,14 +67,35 @@
         .devsecops-stage:hover {
             background-color: #E2E8F0;
         }
+        .home-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            background-color: #047857;
+            color: #ffffff;
+            padding: 0.45rem 1.2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 12px 26px -12px rgba(4, 120, 87, 0.55);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+        }
+        .home-button:hover {
+            background-color: #065f46;
+            transform: translateY(-2px);
+            box-shadow: 0 18px 32px -14px rgba(6, 95, 70, 0.65);
+        }
     </style>
 </head>
 <body class="antialiased">
 
     <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-30 shadow-sm">
         <nav class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <h1 class="text-xl md:text-2xl font-bold text-emerald-700">Software Engineering Challenges</h1>
+            <div class="flex items-center justify-between gap-4">
+                <div class="flex items-center gap-4">
+                    <h1 class="text-xl md:text-2xl font-bold text-emerald-700">Software Engineering Challenges</h1>
+                    <a href="index.html" class="home-button text-sm md:text-base" aria-label="Return to the home page">Home</a>
+                </div>
                 <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-600" id="desktop-nav">
                     <a href="#overview" class="nav-link border-b-2 border-transparent hover:text-emerald-600 pb-1">Overview</a>
                     <a href="#technology" class="nav-link border-b-2 border-transparent hover:text-emerald-600 pb-1">Technology</a>

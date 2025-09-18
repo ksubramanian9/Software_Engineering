@@ -60,11 +60,32 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
+        .home-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            background-color: #38A89D;
+            color: #ffffff;
+            padding: 0.45rem 1.1rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 12px 26px -12px rgba(56, 168, 157, 0.55);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+        }
+        .home-button:hover {
+            background-color: #2f9c91;
+            transform: translateY(-2px);
+            box-shadow: 0 18px 32px -14px rgba(47, 156, 145, 0.65);
+        }
     </style>
 </head>
 <body class="antialiased">
 
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="flex justify-end mb-6">
+            <a href="index.html" class="home-button" aria-label="Return to the home page">Home</a>
+        </div>
         <header class="text-center mb-12">
             <h1 class="text-4xl md:text-5xl font-bold text-gray-800">The State of Modern Unit Testing</h1>
             <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">An interactive guide to the methods, tools, and future trends shaping software quality today.</p>

@@ -22,23 +22,31 @@
     .chart-container { position: relative; width: 100%; max-width: 680px; margin: 0 auto; height: 340px; }
     @media (min-width: 768px) { .chart-container { height: 420px; } }
     html { scroll-behavior: smooth; }
+    .home-button { display:inline-flex; align-items:center; gap:0.4rem; background:#f59e0b; color:#fff; padding:0.45rem 1.15rem; border-radius:9999px; font-weight:600; text-decoration:none; box-shadow:0 12px 25px -12px rgba(245,158,11,0.65); transition:transform .2s, box-shadow .2s, background-color .2s; }
+    .home-button:hover { background:#d97706; transform:translateY(-2px); box-shadow:0 18px 30px -14px rgba(217,119,6,0.7); }
   </style>
 </head>
 <body class="smooth-scroll">
 
 <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
-  <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-    <h1 class="text-2xl font-extrabold text-slate-800">FinOps, Explained</h1>
-    <div class="hidden md:flex items-center space-x-8">
-      <a href="#concepts" class="nav-link font-medium pb-1">Concepts</a>
-      <a href="#maturity" class="nav-link font-medium pb-1">Maturity</a>
-      <a href="#priorities" class="nav-link font-medium pb-1">Priorities</a>
-      <a href="#playbooks" class="nav-link font-medium pb-1">Playbooks</a>
-      <a href="#tooling" class="nav-link font-medium pb-1">Tooling</a>
+  <nav class="container mx-auto px-6 py-4 flex flex-wrap items-center justify-between gap-4">
+    <div class="flex items-center justify-between w-full md:w-auto gap-4">
+      <h1 class="text-2xl font-extrabold text-slate-800">FinOps, Explained</h1>
+      <a href="index.html" class="home-button md:hidden text-sm" aria-label="Return to the home page">Home</a>
     </div>
-    <div class="md:hidden">
-      <select id="mobile-nav" class="bg-slate-100 border border-slate-300 rounded-md p-2 text-slate-700">
-        <option value="#hero">Home</option>
+    <div class="hidden md:flex items-center gap-6">
+      <div class="flex items-center space-x-8">
+        <a href="#concepts" class="nav-link font-medium pb-1">Concepts</a>
+        <a href="#maturity" class="nav-link font-medium pb-1">Maturity</a>
+        <a href="#priorities" class="nav-link font-medium pb-1">Priorities</a>
+        <a href="#playbooks" class="nav-link font-medium pb-1">Playbooks</a>
+        <a href="#tooling" class="nav-link font-medium pb-1">Tooling</a>
+      </div>
+      <a href="index.html" class="home-button" aria-label="Return to the home page">Home</a>
+    </div>
+    <div class="flex items-center gap-3 w-full md:hidden">
+      <select id="mobile-nav" class="bg-slate-100 border border-slate-300 rounded-md p-2 text-slate-700 flex-1">
+        <option value="#hero">Page Sections</option>
         <option value="#concepts">Concepts</option>
         <option value="#maturity">Maturity</option>
         <option value="#priorities">Priorities</option>
