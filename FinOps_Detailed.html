@@ -158,6 +158,8 @@
                     <li><a href="#insights" class="nav-item sidebar-nav-item">Analysts' Insights</a></li>
                     <li><a href="#case-studies" class="nav-item sidebar-nav-item">Case Studies</a></li>
                     <li><a href="#conclusion" class="nav-item sidebar-nav-item">Conclusion</a></li>
+                    <li class="mt-6 border-t border-gray-200 pt-4"><a href="FinOps_Summary.html" class="nav-item sidebar-nav-item font-semibold text-blue-600">Executive Summary Overview</a></li>
+                    <li><a href="index.html#services" class="nav-item sidebar-nav-item font-semibold text-blue-600">← Back to Advisory Services</a></li>
                 </ul>
             </nav>
         </aside>
@@ -324,17 +326,27 @@
                     <h2 class="section-heading">7. Recent Statistics, Benchmarks, and Industry Survey Data (2024–2025)</h2>
                     <p class="mb-4">Recent data quantifies the state of FinOps:</p>
                     <ul class="list-disc pl-6 mb-4 space-y-2">
-                        <li><strong>Top Priorities:</strong> Workload optimization and waste reduction remains #1 (50% of respondents), followed by cost allocation (~30%) and accurate forecasting (~27%). Governance and policy are rising fast.</li>
-                        <li><strong>Adoption Levels:</strong> 51% of organizations have FinOps teams, with another 27% planning to introduce them. Cloud cost optimization is a top initiative for 71%.</li>
-                        <li><strong>Cloud Spending Waste and Savings Potential:</strong> Roughly <strong>30% of cloud spend is wasted</strong>. FinOps practices are delivering real savings, with Deloitte predicting <strong>$21 billion in savings in 2025</strong> and some organizations cutting up to 40% of cloud costs.</li>
-                        <li><strong>Investments:</strong> 34% of companies increased FinOps tooling and training investment by at least 20%. 63% now manage AI/ML cloud spend (doubled from last year).</li>
-                        <li><strong>Scope Expansion:</strong> 65% of FinOps teams oversee SaaS spending, and 39% manage private cloud/datacenter costs.</li>
-                        <li><strong>Benchmarking:</strong> Average AWS compute Effective Savings Rate (ESR) was ~26% in 2023. Many companies strive for >90% allocation coverage.</li>
+                        <li><strong>Top Priorities:</strong> Waste reduction remains the #1 initiative for <strong>58%</strong> of teams, followed by <strong>48%</strong> driving deeper allocation coverage and <strong>44%</strong> sharpening forecast accuracy to keep variance within 10–15%.</li>
+                        <li><strong>Governance & Guardrails:</strong> <strong>39%</strong> of FinOps programs are codifying policies and preventative guardrails (“FinOps as Code”) to sustain accountability.</li>
+                        <li><strong>AI, Kubernetes & Unit Economics:</strong> <strong>36%</strong> are prioritizing AI/ML and GPU cost controls, <strong>33%</strong> are tightening Kubernetes chargeback, and <strong>31%</strong> are advancing unit economics for pricing decisions.</li>
+                        <li><strong>Adoption Levels:</strong> 51% of organizations have dedicated FinOps teams, with another 27% planning to introduce them. 63% already manage AI/ML cloud spend as part of FinOps scope.</li>
+                        <li><strong>Cloud Spending Waste & Savings Potential:</strong> Roughly <strong>30% of cloud spend is wasted</strong>. Mature FinOps programs sustain <strong>15–25% YoY savings</strong> on addressable spend, and Deloitte forecasts <strong>$21B</strong> in aggregate savings for 2025.</li>
+                        <li><strong>Investments & Scope Expansion:</strong> 34% increased tooling and training budgets by ≥20%; 65% oversee SaaS spending and 39% manage private cloud/datacenter costs within the FinOps remit.</li>
+                        <li><strong>Benchmarking:</strong> Leading teams maintain AWS compute Effective Savings Rate around 26% and push allocation coverage above 90% to reinforce accountability.</li>
                     </ul>
                     <figure class="mb-4 rounded-lg overflow-hidden shadow-md">
-                        <img src="https://placehold.co/800x450/E0F2FE/1E40AF?text=FinOps+Priorities+Chart" alt="FinOps teams’ current vs. future priorities - survey results show optimization and cost allocation are top focus areas, while governance and managing new cost domains (AI, SaaS, etc.) are rising in importance." class="w-full h-auto object-cover">
-                        <figcaption class="text-sm text-gray-600 p-2 text-center">FinOps teams’ current vs. future priorities – survey results show optimization and cost allocation are top focus areas, while governance and managing new cost domains (AI, SaaS, etc.) are rising in importance.</figcaption>
+                        <img src="https://placehold.co/800x450/E0F2FE/1E40AF?text=FinOps+Priorities+Chart" alt="Bar chart showing FinOps priorities: waste reduction 58%, allocation coverage 48%, forecast accuracy 44%, governance 39%, AI/GPU cost control 36%, Kubernetes chargeback 33%, unit economics 31%." class="w-full h-auto object-cover">
+                        <figcaption class="text-sm text-gray-600 p-2 text-center">Interactive benchmark snapshot – Waste reduction (58%), allocation coverage (48%), and forecast accuracy (44%) dominate 2025 FinOps agendas, with governance (39%), AI/GPU controls (36%), Kubernetes chargeback (33%), and unit economics (31%) close behind.</figcaption>
                     </figure>
+                    <div class="mt-6 rounded-2xl border border-blue-200 bg-blue-50 p-6 text-blue-900">
+                        <h3 class="text-xl font-semibold mb-3">Executive scorecard checkpoints</h3>
+                        <ul class="list-disc pl-5 space-y-1 text-blue-900/90">
+                            <li>Keep forecast variance within <strong>10–15%</strong> through monthly re-forecasting and anomaly response.</li>
+                            <li>Sustain <strong>15–25% YoY savings</strong> on addressable cloud spend by pairing rightsizing with commitment automation.</li>
+                            <li>Maintain <strong>&gt;90%</strong> cost allocation coverage to enable accountable showback/chargeback rhythms.</li>
+                        </ul>
+                        <a href="FinOps_Summary.html#priorities" class="mt-4 inline-flex items-center gap-2 rounded-full bg-blue-600 px-5 py-2 text-sm font-semibold text-white shadow hover:bg-blue-700">View the executive snapshot<span aria-hidden="true">→</span></a>
+                    </div>
                 </section>
 
                 <hr class="border-gray-200 my-8">
@@ -372,6 +384,16 @@
                     <h2 class="section-heading">Conclusion</h2>
                     <p class="mb-4">As of 2025, FinOps has firmly established itself as an essential discipline for any organization leveraging cloud and "as-a-service" technologies. Adoption is broad and growing, with companies across the globe building FinOps teams to drive financial accountability in IT. The practice has evolved beyond just curbing cloud bills – it now encompasses governance, forecasting, automation, and value optimization across multi-cloud and hybrid environments.</p>
                     <p class="mb-4">Executives should view FinOps as a strategic capability: those who excel in it can reinvest savings into growth initiatives, price their products more competitively, and navigate economic pressures more effectively. The current state of FinOps reflects a maturing field with robust frameworks, benchmarks, and tools, yet also one that continues to adapt (e.g. to AI and new cost domains). By embracing best practices and learning from industry peers, organizations can progress along the FinOps maturity curve, from initial visibility to continuous optimization and innovation alignment. In a time when digital efficiency is a key business differentiator, a strong FinOps practice provides the insight and agility to ensure every cloud dollar spent is driving maximum business value.</p>
+                    <div class="mt-8 rounded-3xl bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 px-8 py-10 text-white shadow-xl flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+                        <div class="max-w-3xl space-y-2">
+                            <h3 class="text-2xl font-semibold">Continue the journey with Brightscale</h3>
+                            <p class="text-slate-100/80">Move from insights to execution with our FinOps advisors—align steering committees, embed guardrails, and unlock reinvestment capacity.</p>
+                        </div>
+                        <div class="flex flex-col gap-3 md:items-end">
+                            <a href="FinOps_Summary.html" class="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg transition hover:bg-blue-100/70">Review the executive summary</a>
+                            <a href="index.html#contact" class="inline-flex items-center justify-center rounded-full border border-blue-200 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10">Talk to our FinOps advisors</a>
+                        </div>
+                    </div>
                 </section>
 
             </div>
