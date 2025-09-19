@@ -97,8 +97,9 @@
         </div>
     </header>
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div class="flex justify-end mb-8">
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-8">
             <a href="index.html" class="home-button" aria-label="Return to the home page">← Home</a>
+            <a href="index.html#services" class="home-button" aria-label="Return to the services overview">Services Overview</a>
         </div>
         <header class="text-center mb-12">
             <h1 class="text-4xl md:text-5xl font-bold text-slate-900">The Modern Software Code Pipeline</h1>
@@ -157,7 +158,8 @@
     <template id="template-collaborate">
         <div class="stage-content">
             <h3 class="text-3xl font-bold text-slate-800 mb-4">Stage 1: Collaboration & Version Control</h3>
-            <p class="text-slate-600 mb-8">This initial stage is the foundation of the entire pipeline, focusing on how developers work together to write and manage code. Effective collaboration prevents conflicts and ensures a stable codebase. The cornerstone of this is Version Control, with Git being the industry standard.</p>
+            <p class="text-slate-600 mb-6">This initial stage is the foundation of the entire pipeline, focusing on how developers work together to write and manage code. Effective collaboration prevents conflicts and ensures a stable codebase. The cornerstone of this is Version Control, with Git being the industry standard.</p>
+            <p class="text-slate-600 mb-8">Brightscale advisors codify contribution guardrails—pairing merge automation, AI-assisted code review policies, and knowledge-sharing rhythms—so your collaboration culture scales without sacrificing compliance or speed.</p>
             
             <h4 class="text-xl font-semibold text-slate-700 mb-4">Branching Strategies Comparison</h4>
             <p class="text-slate-600 mb-6">A branching strategy defines the rules for how developers create and merge code. Choosing the right one depends on team size, release frequency, and project complexity. Click below to compare popular strategies.</p>
@@ -169,13 +171,21 @@
             <div id="branching-details" class="p-6 bg-slate-50 rounded-lg border border-slate-200">
                 <!-- Branching details will be injected here -->
             </div>
+            <div class="mt-10 flex flex-col gap-4 rounded-2xl bg-slate-900/95 p-6 text-white md:flex-row md:items-center md:justify-between">
+                <div>
+                    <h4 class="text-lg font-semibold">Advisory Spotlight</h4>
+                    <p class="text-sm text-slate-200 mt-2">Need help codifying branch policies, AI pair-programming guardrails, or contribution scorecards? We tailor collaboration playbooks to your governance requirements.</p>
+                </div>
+                <a href="index.html#contact" class="inline-flex items-center justify-center rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-slate-900 shadow-lg transition hover:bg-sky-100/80">Talk to a Pipeline Advisor</a>
+            </div>
         </div>
     </template>
     
     <template id="template-ci">
         <div class="stage-content">
             <h3 class="text-3xl font-bold text-slate-800 mb-4">Stage 2: Continuous Integration (CI)</h3>
-            <p class="text-slate-600 mb-8">Continuous Integration is the practice of frequently merging all developers' code changes into a central repository, after which automated builds and tests are run. The goal is to detect integration issues as early as possible. This process is triggered automatically every time a developer commits new code.</p>
+            <p class="text-slate-600 mb-6">Continuous Integration is the practice of frequently merging all developers' code changes into a central repository, after which automated builds and tests are run. The goal is to detect integration issues as early as possible. This process is triggered automatically every time a developer commits new code.</p>
+            <p class="text-slate-600 mb-8">Our advisors architect CI foundations with policy-as-code, automated AI code scanning, and telemetry so build health is continuously visible and compliant workflows stay hands-free.</p>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                 <div>
                     <h4 class="text-xl font-semibold text-slate-700 mb-4">Key CI Activities</h4>
@@ -201,13 +211,21 @@
                     </div>
                 </div>
             </div>
+            <div class="mt-10 flex flex-col gap-4 rounded-2xl bg-slate-900/95 p-6 text-white md:flex-row md:items-center md:justify-between">
+                <div>
+                    <h4 class="text-lg font-semibold">Automate with Confidence</h4>
+                    <p class="text-sm text-slate-200 mt-2">Engage Brightscale to design CI pipelines that marry security controls, FinOps guardrails, and AI policy enforcement without slowing releases.</p>
+                </div>
+                <a href="index.html#contact" class="inline-flex items-center justify-center rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-slate-900 shadow-lg transition hover:bg-sky-100/80">Book a CI Working Session</a>
+            </div>
         </div>
     </template>
 
     <template id="template-gates">
         <div class="stage-content">
             <h3 class="text-3xl font-bold text-slate-800 mb-4">Stage 3: Quality Gates & Artifacts</h3>
-            <p class="text-slate-600 mb-8">After code is successfully built and tested in CI, it must pass through a series of Quality Gates before it can be packaged. These gates are automated checks that enforce standards and ensure only high-quality code proceeds. The output of this stage is a versioned, immutable "build artifact"—a packaged piece of software ready for deployment.</p>
+            <p class="text-slate-600 mb-6">After code is successfully built and tested in CI, it must pass through a series of Quality Gates before it can be packaged. These gates are automated checks that enforce standards and ensure only high-quality code proceeds. The output of this stage is a versioned, immutable "build artifact"—a packaged piece of software ready for deployment.</p>
+            <p class="text-slate-600 mb-8">Brightscale helps teams design these guardrails, from AI-generated code scrutiny to segregation-of-duties approvals, so every release candidate meets regulatory and resilience thresholds before deployment.</p>
             
             <h4 class="text-xl font-semibold text-slate-700 mb-6 text-center">Typical Quality Gate Metrics</h4>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -227,9 +245,16 @@
                     <p class="text-sm text-slate-500 mt-2">All unit, integration, and component tests must pass for the build to be considered stable.</p>
                 </div>
             </div>
-             <div class="mt-8 bg-slate-100 p-6 rounded-lg">
+            <div class="mt-8 bg-slate-100 p-6 rounded-lg">
                 <h4 class="font-semibold text-slate-800">The Build Artifact</h4>
                 <p class="text-slate-600 mt-2">The final output is stored in an artifact repository (like Nexus, Artifactory, or a container registry). This artifact is a single, reliable package that can be deployed to any environment, ensuring consistency from testing to production.</p>
+            </div>
+            <div class="mt-10 flex flex-col gap-4 rounded-2xl bg-slate-900/95 p-6 text-white md:flex-row md:items-center md:justify-between">
+                <div>
+                    <h4 class="text-lg font-semibold">Engineer Quality Gates</h4>
+                    <p class="text-sm text-slate-200 mt-2">Work with our specialists to define automated compliance checks, SBOM attestation workflows, and artifact promotion policies tailored to your sector.</p>
+                </div>
+                <a href="index.html#contact" class="inline-flex items-center justify-center rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-slate-900 shadow-lg transition hover:bg-sky-100/80">Schedule a Guardrail Review</a>
             </div>
         </div>
     </template>
@@ -237,7 +262,8 @@
     <template id="template-cd">
         <div class="stage-content">
             <h3 class="text-3xl font-bold text-slate-800 mb-4">Stage 4: Continuous Deployment (CD)</h3>
-            <p class="text-slate-600 mb-8">Continuous Deployment automates the release of the validated build artifact from the previous stage into a production environment. This process can be fully automated or include a manual approval step (which is then called Continuous Delivery). The goal is to make releases a low-risk, frequent, and reliable event.</p>
+            <p class="text-slate-600 mb-6">Continuous Deployment automates the release of the validated build artifact from the previous stage into a production environment. This process can be fully automated or include a manual approval step (which is then called Continuous Delivery). The goal is to make releases a low-risk, frequent, and reliable event.</p>
+            <p class="text-slate-600 mb-8">Brightscale designs deployment playbooks that align release strategies with regulatory guardrails, AIOps rollback cues, and business stakeholder sign-offs so automation stays accountable.</p>
             
             <h4 class="text-xl font-semibold text-slate-700 mb-4">Common Deployment Strategies</h4>
             <div class="space-y-6">
@@ -254,13 +280,21 @@
                     <p class="text-slate-600 mt-2">The new version is slowly deployed across the server fleet, replacing instances of the old version one by one or in batches. This is simpler than Blue-Green but can be harder to roll back, as for a period of time, both old and new versions are running simultaneously.</p>
                 </div>
             </div>
+            <div class="mt-10 flex flex-col gap-4 rounded-2xl bg-slate-900/95 p-6 text-white md:flex-row md:items-center md:justify-between">
+                <div>
+                    <h4 class="text-lg font-semibold">Modernize Release Governance</h4>
+                    <p class="text-sm text-slate-200 mt-2">Partner with our team to map deployment strategies to change-management policies, A/B observability triggers, and executive readiness dashboards.</p>
+                </div>
+                <a href="index.html#contact" class="inline-flex items-center justify-center rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-slate-900 shadow-lg transition hover:bg-sky-100/80">Plan a Release Workshop</a>
+            </div>
         </div>
     </template>
 
     <template id="template-monitor">
         <div class="stage-content">
             <h3 class="text-3xl font-bold text-slate-800 mb-4">Stage 5: Monitor & Observe</h3>
-            <p class="text-slate-600 mb-8">The pipeline doesn't end at deployment. Once the code is live, robust monitoring and observability practices are essential to ensure the application is healthy and performing as expected. This stage provides the critical feedback loop that informs future development cycles.</p>
+            <p class="text-slate-600 mb-6">The pipeline doesn't end at deployment. Once the code is live, robust monitoring and observability practices are essential to ensure the application is healthy and performing as expected. This stage provides the critical feedback loop that informs future development cycles.</p>
+            <p class="text-slate-600 mb-8">We advise on SRE operating rhythms, business-aligned observability dashboards, and AI-driven anomaly detection so you can act on insights before customers feel the impact.</p>
             
             <h4 class="text-xl font-semibold text-slate-700 mb-6 text-center">The Three Pillars of Observability</h4>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -277,9 +311,16 @@
                     <p class="text-sm text-slate-500 mt-2">Show the entire lifecycle of a request as it moves through a distributed system. Traces connect individual events across multiple services, making it possible to identify performance bottlenecks and understand dependencies in a microservices architecture.</p>
                 </div>
             </div>
-             <div class="mt-8 bg-slate-100 p-6 rounded-lg">
+            <div class="mt-8 bg-slate-100 p-6 rounded-lg">
                 <h4 class="font-semibold text-slate-800">The Feedback Loop</h4>
                 <p class="text-slate-600 mt-2">Information gathered here—from error reports to performance data—directly informs the creation of new features and bug fixes, starting the entire pipeline over again. This continuous cycle of improvement is the core principle of modern DevOps.</p>
+            </div>
+            <div class="mt-10 flex flex-col gap-4 rounded-2xl bg-slate-900/95 p-6 text-white md:flex-row md:items-center md:justify-between">
+                <div>
+                    <h4 class="text-lg font-semibold">Elevate Observability</h4>
+                    <p class="text-sm text-slate-200 mt-2">Co-create runbooks, SLO scorecards, and FinOps-informed dashboards with Brightscale so teams can close the loop on customer experience and cost.</p>
+                </div>
+                <a href="index.html#contact" class="inline-flex items-center justify-center rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-slate-900 shadow-lg transition hover:bg-sky-100/80">Connect with Our SRE Leads</a>
             </div>
         </div>
     </template>
