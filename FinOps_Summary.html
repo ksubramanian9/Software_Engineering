@@ -10,12 +10,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/brand-header.css">
+  <link rel="stylesheet" href="styles/design-system.css">
   <!-- Palette: Slate + Amber -->
   <style>
-    body { font-family: 'Inter', sans-serif; background-color:#f8fafc; color:#1e293b; }
-    .smooth-scroll { scroll-behavior: smooth; }
-    .nav-link { transition: color .3s, border-bottom-color .3s; border-bottom:2px solid transparent; }
-    .nav-link.active, .nav-link:hover { color:#f59e0b; border-bottom-color:#f59e0b; }
+    :root {
+      --page-bg: #f8fafc;
+      --page-text: #1e293b;
+      --nav-link-accent: #f59e0b;
+      --home-button-bg: #f59e0b;
+      --home-button-hover: #d97706;
+      --home-button-shadow: 0 12px 25px -12px rgba(245, 158, 11, 0.65);
+      --home-button-shadow-hover: 0 18px 30px -14px rgba(217, 119, 6, 0.7);
+    }
     .tab-button { transition: all .2s; }
     .tab-button.active { background:#f59e0b; color:#fff; box-shadow:0 4px 6px -1px rgb(0 0 0 / .1), 0 2px 4px -2px rgb(0 0 0 / .1); }
     .card { transition: transform .2s, box-shadow .2s; }
@@ -23,8 +29,6 @@
     .chart-container { position: relative; width: 100%; max-width: 680px; margin: 0 auto; height: 340px; }
     @media (min-width: 768px) { .chart-container { height: 420px; } }
     html { scroll-behavior: smooth; }
-    .home-button { display:inline-flex; align-items:center; gap:0.4rem; background:#f59e0b; color:#fff; padding:0.45rem 1.15rem; border-radius:9999px; font-weight:600; text-decoration:none; box-shadow:0 12px 25px -12px rgba(245,158,11,0.65); transition:transform .2s, box-shadow .2s, background-color .2s; }
-    .home-button:hover { background:#d97706; transform:translateY(-2px); box-shadow:0 18px 30px -14px rgba(217,119,6,0.7); }
   </style>
 </head>
 <body class="smooth-scroll">

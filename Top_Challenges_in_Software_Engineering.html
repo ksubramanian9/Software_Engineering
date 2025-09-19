@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/brand-header.css">
+    <link rel="stylesheet" href="styles/design-system.css">
     <!-- Chosen Palette: Warm Neutral Harmony -->
     <!-- Application Structure Plan: A dashboard-style SPA featuring a central interactive radar chart for a high-level overview, key statistic cards for quick insights, and three thematic sections (Technology, Process, People) to group related challenges. Clicking any challenge (on the chart or in a section) reveals a detailed, dynamically-populated content pane. This structure was chosen to transform the linear report into an exploratory experience, highlighting the interconnectedness of the challenges and allowing users to move from a broad summary to deep-dive analysis intuitively, which enhances usability and comprehension over a simple text layout. -->
     <!-- Visualization & Content Choices: 
@@ -21,10 +22,14 @@
     -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #FDFBF8; /* Warm Neutral: A very light, warm off-white */
-            color: #4A4A4A;
+        :root {
+            --page-bg: #FDFBF8;
+            --page-text: #4A4A4A;
+            --nav-link-accent: #047857;
+            --home-button-bg: #047857;
+            --home-button-hover: #065f46;
+            --home-button-shadow: 0 12px 26px -12px rgba(4, 120, 87, 0.55);
+            --home-button-shadow-hover: 0 18px 32px -14px rgba(6, 95, 70, 0.65);
         }
         .chart-container {
             position: relative;
@@ -40,13 +45,6 @@
                 height: 500px;
                 max-height: 60vh;
             }
-        }
-        .nav-link {
-            transition: all 0.2s ease-in-out;
-        }
-        .nav-link.active {
-            color: #047857; /* Accent: Emerald 600 */
-            border-bottom-color: #047857;
         }
         .challenge-card {
             transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
@@ -67,24 +65,6 @@
         }
         .devsecops-stage:hover {
             background-color: #E2E8F0;
-        }
-        .home-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.45rem;
-            background-color: #047857;
-            color: #ffffff;
-            padding: 0.45rem 1.2rem;
-            border-radius: 9999px;
-            font-weight: 600;
-            text-decoration: none;
-            box-shadow: 0 12px 26px -12px rgba(4, 120, 87, 0.55);
-            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-        }
-        .home-button:hover {
-            background-color: #065f46;
-            transform: translateY(-2px);
-            box-shadow: 0 18px 32px -14px rgba(6, 95, 70, 0.65);
         }
     </style>
 </head>

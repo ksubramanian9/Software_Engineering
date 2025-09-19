@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/brand-header.css">
+    <link rel="stylesheet" href="styles/design-system.css">
     <!-- Chosen Palette: "Calm Harmony" - A mix of warm neutrals (bg-stone-50, bg-stone-100), a gentle primary color (sky-600), and subtle accents (amber-500). -->
     <!-- Application Structure Plan: The SPA is designed with a thematic, single-column scrolling structure, guided by a sticky top navigation. This approach allows users to either follow a logical narrative from top to bottom (from 'Why it Matters' to 'Future State') or jump directly to a section of interest. The key interactions involve hovering over charts for detailed data and clicking navigation links for smooth scrolling. This structure was chosen to simplify a dense report, making it digestible and easy to navigate for users who might be new to the topic or those looking for specific data points, thus maximizing usability and comprehension. -->
     <!-- Visualization & Content Choices:
@@ -21,10 +22,14 @@
     -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafc; /* slate-50 */
-            color: #1e293b; /* slate-800 */
+        :root {
+            --page-bg: #f8fafc;
+            --page-text: #1e293b;
+            --nav-link-accent: #0284c7;
+            --home-button-bg: #0284c7;
+            --home-button-hover: #0369a1;
+            --home-button-shadow: 0 12px 26px -12px rgba(2, 132, 199, 0.6);
+            --home-button-shadow-hover: 0 18px 32px -14px rgba(3, 105, 161, 0.7);
         }
         .chart-container {
             position: relative;
@@ -39,14 +44,6 @@
             .chart-container {
                 height: 350px;
             }
-        }
-        .nav-link {
-            transition: color 0.3s ease, border-bottom-color 0.3s ease;
-            border-bottom: 2px solid transparent;
-        }
-        .nav-link.active, .nav-link:hover {
-            color: #0284c7; /* sky-600 */
-            border-bottom-color: #0284c7; /* sky-600 */
         }
         .smooth-scroll {
             scroll-behavior: smooth;
@@ -64,24 +61,6 @@
         .attribute-tab.active-tab {
             border-bottom-color: #0284c7;
             color: #0284c7;
-        }
-        .home-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.45rem;
-            background-color: #0284c7;
-            color: #ffffff;
-            padding: 0.45rem 1.2rem;
-            border-radius: 9999px;
-            font-weight: 600;
-            text-decoration: none;
-            box-shadow: 0 12px 26px -12px rgba(2, 132, 199, 0.6);
-            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-        }
-        .home-button:hover {
-            background-color: #0369a1;
-            transform: translateY(-2px);
-            box-shadow: 0 18px 32px -14px rgba(3, 105, 161, 0.7);
         }
     </style>
 </head>

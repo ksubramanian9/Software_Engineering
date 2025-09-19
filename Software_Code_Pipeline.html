@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/brand-header.css">
+    <link rel="stylesheet" href="styles/design-system.css">
     <!-- Chosen Palette: Cool Blues & Grays -->
     <!-- Application Structure Plan: The application is designed as an interactive, linear flowchart representing the code pipeline. This structure was chosen because it visually mirrors the actual process, making the flow of code from development to production intuitive and easy to follow. Users can click on each distinct stage of the pipeline (e.g., 'Collaborate', 'CI', 'CD') to reveal a detailed explanation below. This approach provides a high-level overview while allowing for self-paced, deep dives into specific topics, which is more engaging and effective for learning than a static document or a tabbed interface. -->
     <!-- Visualization & Content Choices: 
@@ -21,10 +22,13 @@
     -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafc; /* slate-50 */
-            color: #1e293b; /* slate-800 */
+        :root {
+            --page-bg: #f8fafc;
+            --page-text: #1e293b;
+            --home-button-bg: #0ea5e9;
+            --home-button-hover: #0284c7;
+            --home-button-shadow: 0 10px 25px -10px rgba(14, 165, 233, 0.6);
+            --home-button-shadow-hover: 0 18px 30px -12px rgba(2, 132, 199, 0.7);
         }
         .pipeline-stage {
             transition: all 0.3s ease;
@@ -67,24 +71,6 @@
             background-color: #0ea5e9; /* sky-500 */
             color: white;
             font-weight: 600;
-        }
-        .home-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background-color: #0ea5e9;
-            color: #ffffff;
-            padding: 0.5rem 1.1rem;
-            border-radius: 9999px;
-            font-weight: 600;
-            text-decoration: none;
-            box-shadow: 0 10px 25px -10px rgba(14, 165, 233, 0.6);
-            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-        }
-        .home-button:hover {
-            background-color: #0284c7;
-            transform: translateY(-2px);
-            box-shadow: 0 18px 30px -12px rgba(2, 132, 199, 0.7);
         }
     </style>
 </head>

@@ -9,15 +9,22 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/brand-header.css">
+  <link rel="stylesheet" href="styles/design-system.css">
   <style>
-    body{font-family:'Inter',sans-serif;background-color:#f8fafc;color:#1e293b}
-    .smooth-scroll{scroll-behavior:smooth}
-    .nav-item{display:block;padding:.5rem .75rem;border-radius:.5rem;color:#6B7280}
-    .nav-item:hover,.nav-item.active{background:#EFF6FF;color:#2563EB}
-    .section{scroll-margin-top:80px}
-    .pill{border:1px solid #E5E7EB;border-radius:9999px;padding:.15rem .6rem;font-size:.75rem}
-    .home-button{display:inline-flex;align-items:center;gap:.45rem;background:#2563EB;color:#fff;padding:.45rem 1.15rem;border-radius:9999px;font-weight:600;text-decoration:none;box-shadow:0 12px 26px -12px rgba(37,99,235,.6);transition:transform .2s,box-shadow .2s,background-color .2s}
-    .home-button:hover{background:#1d4ed8;transform:translateY(-2px);box-shadow:0 18px 32px -14px rgba(29,78,216,.7)}
+    :root{
+      --page-bg:#f8fafc;
+      --page-text:#1e293b;
+      --nav-link-accent:#2563EB;
+      --nav-item-border-width:0;
+      --nav-item-radius:0.5rem;
+      --nav-item-hover-bg:#EFF6FF;
+      --nav-item-active-bg:#EFF6FF;
+      --home-button-bg:#2563EB;
+      --home-button-hover:#1d4ed8;
+      --home-button-shadow:0 12px 26px -12px rgba(37,99,235,.6);
+      --home-button-shadow-hover:0 18px 32px -14px rgba(29,78,216,.7);
+    }
+    .sidebar-nav-item{display:block;padding:.5rem .75rem;border-radius:.5rem;color:#6B7280;transition:background-color .2s ease,color .2s ease}
   </style>
 </head>
 <body class="smooth-scroll">
@@ -47,14 +54,14 @@
       <p class="text-sm text-gray-500 mb-6">Executive Summary</p>
       <a href="index.html" class="home-button mb-6" aria-label="Return to the home page">← Home</a>
       <nav class="space-y-1 text-sm">
-        <a href="#exec" class="nav-item">Executive Snapshot</a>
-        <a href="#threats" class="nav-item">Threats & Exposure</a>
-        <a href="#practices" class="nav-item">What Works Now</a>
-        <a href="#assurance" class="nav-item">Assurance Stack</a>
-        <a href="#regulation" class="nav-item">Regulation (Global & India)</a>
-        <a href="#industries" class="nav-item">Sector Highlights</a>
-        <a href="#emerging" class="nav-item">Emerging Tech</a>
-        <a href="#actions" class="nav-item">90-Day Action Plan</a>
+        <a href="#exec" class="nav-item sidebar-nav-item">Executive Snapshot</a>
+        <a href="#threats" class="nav-item sidebar-nav-item">Threats & Exposure</a>
+        <a href="#practices" class="nav-item sidebar-nav-item">What Works Now</a>
+        <a href="#assurance" class="nav-item sidebar-nav-item">Assurance Stack</a>
+        <a href="#regulation" class="nav-item sidebar-nav-item">Regulation (Global & India)</a>
+        <a href="#industries" class="nav-item sidebar-nav-item">Sector Highlights</a>
+        <a href="#emerging" class="nav-item sidebar-nav-item">Emerging Tech</a>
+        <a href="#actions" class="nav-item sidebar-nav-item">90-Day Action Plan</a>
       </nav>
     </aside>
 

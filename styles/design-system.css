@@ -1,0 +1,126 @@
+/*
+  Design system shared styles
+  Custom properties available for page-level theming:
+    --page-bg: Body background fill (color or gradient).
+    --page-text: Default body text color.
+    --nav-link-accent: Accent color for active/hover navigation links or items.
+    --nav-item-hover-bg: Optional background color for navigation items on hover.
+    --nav-item-active-bg: Optional background color for active navigation items.
+    --nav-item-hover-shadow: Optional box-shadow for navigation items on hover.
+    --nav-item-active-shadow: Optional box-shadow for active navigation items.
+    --nav-item-active-color: Text color for active navigation items.
+    --nav-link-active-color: Text color for active navigation links.
+    --nav-item-border-width: Border width used for underline-style navigation.
+    --nav-item-radius: Corner radius applied to navigation items.
+    --nav-item-active-weight: Font weight applied to active navigation items.
+    --nav-link-active-weight: Font weight applied to active navigation links.
+    --home-button-bg: Home button background color.
+    --home-button-text: Home button text color.
+    --home-button-hover: Home button background color on hover/focus.
+    --home-button-text-hover: Home button text color on hover/focus.
+    --home-button-shadow: Home button box-shadow.
+    --home-button-shadow-hover: Home button box-shadow on hover/focus.
+*/
+:root {
+  --page-bg: #f8fafc;
+  --page-text: #0f172a;
+  --nav-link-accent: #2563eb;
+  --nav-item-hover-bg: transparent;
+  --nav-item-active-bg: transparent;
+  --nav-item-hover-shadow: none;
+  --nav-item-active-shadow: none;
+  --nav-item-border-width: 2px;
+  --nav-item-radius: 0;
+  --nav-item-active-weight: 600;
+  --nav-link-active-weight: 600;
+  --home-button-bg: #2563eb;
+  --home-button-text: #ffffff;
+  --home-button-hover: #1d4ed8;
+  --home-button-text-hover: #ffffff;
+  --home-button-shadow: 0 12px 25px -12px rgba(37, 99, 235, 0.65);
+  --home-button-shadow-hover: 0 18px 30px -14px rgba(29, 78, 216, 0.7);
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: var(--page-bg);
+  color: var(--page-text);
+  line-height: 1.6;
+}
+
+.smooth-scroll {
+  scroll-behavior: smooth;
+}
+
+.section {
+  scroll-margin-top: 80px;
+}
+
+.pill {
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  border-radius: 9999px;
+  padding: 0.15rem 0.6rem;
+  font-size: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.nav-link,
+.nav-item {
+  transition: color 0.3s ease, border-bottom-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  border-bottom: var(--nav-item-border-width) solid transparent;
+  border-radius: var(--nav-item-radius);
+  color: inherit;
+}
+
+.nav-link:hover,
+.nav-link:focus,
+.nav-item:hover,
+.nav-item:focus {
+  color: var(--nav-link-accent);
+  border-bottom-color: var(--nav-link-accent);
+}
+
+.nav-link.active {
+  color: var(--nav-link-active-color, var(--nav-link-accent));
+  border-bottom-color: var(--nav-link-accent);
+  font-weight: var(--nav-link-active-weight);
+}
+
+.nav-item:hover,
+.nav-item:focus {
+  background-color: var(--nav-item-hover-bg);
+  box-shadow: var(--nav-item-hover-shadow);
+}
+
+.nav-item.active {
+  color: var(--nav-item-active-color, var(--nav-link-accent));
+  border-bottom-color: var(--nav-link-accent);
+  background-color: var(--nav-item-active-bg, var(--nav-item-hover-bg));
+  box-shadow: var(--nav-item-active-shadow, var(--nav-item-hover-shadow));
+  font-weight: var(--nav-item-active-weight);
+}
+
+.home-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: var(--home-button-bg);
+  color: var(--home-button-text);
+  padding: 0.45rem 1.2rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: var(--home-button-shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.home-button:hover,
+.home-button:focus {
+  background: var(--home-button-hover);
+  color: var(--home-button-text-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--home-button-shadow-hover);
+}

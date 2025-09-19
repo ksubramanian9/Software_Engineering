@@ -9,15 +9,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/brand-header.css">
+    <link rel="stylesheet" href="styles/design-system.css">
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: #1e293b; /* slate-800 */
-            background-color: #f8fafc; /* slate-50 */
-        }
-        .smooth-scroll {
-            scroll-behavior: smooth;
+        :root {
+            --page-bg: #f8fafc;
+            --page-text: #1e293b;
+            --home-button-bg: #2563EB;
+            --home-button-hover: #1d4ed8;
+            --home-button-shadow: 0 12px 26px -12px rgba(37, 99, 235, 0.6);
+            --home-button-shadow-hover: 0 18px 32px -14px rgba(29, 78, 216, 0.7);
         }
         .container {
             max-width: 900px;
@@ -81,24 +81,6 @@
             .nav-menu.active {
                 display: flex;
             }
-        }
-        .home-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.45rem;
-            background-color: #2563EB;
-            color: #ffffff;
-            padding: 0.45rem 1.1rem;
-            border-radius: 9999px;
-            font-weight: 600;
-            text-decoration: none;
-            box-shadow: 0 12px 26px -12px rgba(37, 99, 235, 0.6);
-            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-        }
-        .home-button:hover {
-            background-color: #1d4ed8;
-            transform: translateY(-2px);
-            box-shadow: 0 18px 32px -14px rgba(29, 78, 216, 0.7);
         }
     </style>
 </head>
