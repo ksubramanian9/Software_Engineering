@@ -43,6 +43,58 @@
             margin-bottom: 0.5rem;
             color: #6B7280; /* gray-500 */
             font-weight: 500; /* font-medium */
+            border-radius: var(--nav-item-radius, 0.75rem);
+            transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
+        }
+        .sidebar-nav-item[data-depth] {
+            padding-left: 1.5rem;
+        }
+        .sidebar-nav-item[data-depth]::before {
+            content: '';
+            position: absolute;
+            left: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 60%;
+            border-radius: 9999px;
+            background: linear-gradient(180deg, #38bdf8 0%, #2563eb 100%);
+            opacity: 0.35;
+            transition: opacity 0.2s ease, height 0.2s ease;
+        }
+        .sidebar-nav-item[data-depth].active::before {
+            opacity: 1;
+            height: 80%;
+        }
+        .sidebar-nav-item[data-depth].active::after {
+            content: attr(data-depth);
+            position: absolute;
+            right: 0.85rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.65rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #1d4ed8;
+            background: rgba(191, 219, 254, 0.82);
+            padding: 0.15rem 0.45rem;
+            border-radius: 9999px;
+        }
+        .sidebar-nav-item--external {
+            color: #2563EB;
+        }
+        .sidebar-nav-item--external:hover {
+            color: #1d4ed8;
+        }
+        .sidebar-nav-label {
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: #94A3B8;
+            margin-top: 1.25rem;
+            margin-bottom: 0.35rem;
         }
         table {
             width: 100%;
@@ -148,15 +200,20 @@
                 <a href="index.html" class="home-button mt-4" aria-label="Return to the home page">← Home</a>
             </div>
             <nav>
-                <ul>
+                <ul class="space-y-1">
+                    <li class="sidebar-nav-label">Executive Quick Scan</li>
+                    <li><a href="Software_Security_Summary.html#exec" class="nav-item sidebar-nav-item sidebar-nav-item--external">Executive Snapshot</a></li>
+                    <li><a href="Software_Security_Summary.html#assurance" class="nav-item sidebar-nav-item sidebar-nav-item--external">Assurance Overview</a></li>
+                    <li class="sidebar-nav-label border-t border-slate-100 pt-4 mt-4">Interactive Deep Dive</li>
                     <li><a href="#introduction" class="nav-item sidebar-nav-item">Introduction</a></li>
-                    <li><a href="#adoption-trends" class="nav-item sidebar-nav-item">Adoption Trends & Maturity</a></li>
-                    <li><a href="#full-lifecycle" class="nav-item sidebar-nav-item">Full Lifecycle & Supply Chain</a></li>
+                    <li><a href="#adoption-trends" class="nav-item sidebar-nav-item">Adoption Trends &amp; Maturity</a></li>
+                    <li><a href="#full-lifecycle" class="nav-item sidebar-nav-item">Full Lifecycle &amp; Supply Chain</a></li>
+                    <li><a href="#assurance-stack" class="nav-item sidebar-nav-item" data-depth="5 layers">Assurance Stack Depth</a></li>
                     <li><a href="#challenges" class="nav-item sidebar-nav-item">Key Challenges</a></li>
                     <li><a href="#best-practices" class="nav-item sidebar-nav-item">Best Practices</a></li>
                     <li><a href="#maturity-models" class="nav-item sidebar-nav-item">Maturity Models</a></li>
-                    <li><a href="#tooling" class="nav-item sidebar-nav-item">Tooling & Platforms</a></li>
-                    <li><a href="#statistics" class="nav-item sidebar-nav-item">Recent Statistics & Benchmarks</a></li>
+                    <li><a href="#tooling" class="nav-item sidebar-nav-item">Tooling &amp; Platforms</a></li>
+                    <li><a href="#statistics" class="nav-item sidebar-nav-item">Recent Statistics &amp; Benchmarks</a></li>
                     <li><a href="#insights" class="nav-item sidebar-nav-item">Analysts' Insights</a></li>
                     <li><a href="#case-studies" class="nav-item sidebar-nav-item">Case Studies</a></li>
                     <li><a href="#conclusion" class="nav-item sidebar-nav-item">Conclusion</a></li>
@@ -175,6 +232,10 @@
                     <h2 class="section-heading mb-4 text-3xl font-bold text-gray-800">Introduction</h2>
                     <p class="mb-4"><strong>Software Security Assurance</strong> has emerged as a critical discipline in an era where cyber threats are ubiquitous and software underpins nearly every business. With global cybercrime costs projected to reach <strong>$10.5 trillion by 2025</strong>, organizations are increasingly focusing on building security into software from the start to prevent costly breaches. Software Security Assurance (SSA) is defined as an approach to designing, developing, and maintaining software with security built in, ensuring applications perform as intended without introducing vulnerabilities. This interactive report examines the state of software security and assurance in 2025, covering adoption trends, challenges, best practices, tools, industry insights, and real-world case studies in securing software systems.</p>
                     <p class="mb-4">In 2025, the stakes for software security are higher than ever. High-profile incidents – from supply chain attacks to zero-day exploits – have driven home the need for proactive security throughout the software lifecycle. Regulatory bodies are also mandating stricter software assurance measures (for example, requirements for software bills of materials and secure development processes). Against this backdrop, we explore how organizations worldwide are integrating security into their development culture (DevSecOps), what challenges persist in scaling these efforts, and how leaders are measuring success. The goal is to provide a comprehensive snapshot of how far software security assurance has come and where it is heading.</p>
+                    <div class="mt-6 rounded-2xl border border-blue-100 bg-blue-50/70 p-5 text-sm text-blue-900">
+                        <p class="font-semibold uppercase tracking-[0.2em] text-blue-700">Executive quick scan</p>
+                        <p class="mt-2">Need a rapid briefing before diving deep? Review the <a href="Software_Security_Summary.html#exec" class="font-semibold text-blue-700 underline-offset-4 hover:underline">Executive Snapshot</a> or align priorities with the <a href="Software_Security_Summary.html#actions" class="font-semibold text-blue-700 underline-offset-4 hover:underline">90-day plan</a>, then return to this interactive narrative for supporting detail.</p>
+                    </div>
                 </section>
 
                 <section aria-labelledby="security-detailed-engage" class="mb-12">
@@ -211,8 +272,67 @@
 
                 <hr class="border-gray-200 my-8">
 
+                <section id="assurance-stack" class="mb-12">
+                    <h2 class="section-heading">3. Assurance Stack Depth Navigator</h2>
+                    <p class="mb-4">Teams that excel at DevSecOps move beyond isolated scans to orchestrate a multi-layer assurance stack. Building on the executive summary table, the following layers show how leading programs blend adoption metrics with Brightscale-style enablement.</p>
+                    <div class="grid gap-5 md:grid-cols-2">
+                        <article class="flex flex-col gap-3 rounded-2xl border border-blue-100 bg-blue-50/50 p-5 shadow-sm">
+                            <div>
+                                <h3 class="text-lg font-semibold text-blue-900">SAST — Design &amp; Code Controls</h3>
+                                <p class="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600">Shift-left coverage</p>
+                            </div>
+                            <p class="text-sm text-slate-700 leading-relaxed">Over half of organizations run static analysis on their software, giving developers immediate feedback as they commit code so critical issues are fixed before release.</p>
+                            <p class="text-xs font-semibold uppercase tracking-wide text-blue-700">Deep dive: <a href="#best-practices" class="underline-offset-4 hover:underline">Automation &amp; reporting</a></p>
+                        </article>
+                        <article class="flex flex-col gap-3 rounded-2xl border border-emerald-100 bg-emerald-50/50 p-5 shadow-sm">
+                            <div>
+                                <h3 class="text-lg font-semibold text-emerald-900">SCA &amp; Supply-Chain Integrity</h3>
+                                <p class="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-600">Dependency vigilance</p>
+                            </div>
+                            <p class="text-sm text-slate-700 leading-relaxed">Roughly 50% of teams continuously scan containers and open-source libraries, combining SBOMs with signed provenance to shrink third-party risk.</p>
+                            <p class="text-xs font-semibold uppercase tracking-wide text-emerald-700">Deep dive: <a href="#full-lifecycle" class="underline-offset-4 hover:underline">Lifecycle &amp; supply chain</a></p>
+                        </article>
+                        <article class="flex flex-col gap-3 rounded-2xl border border-indigo-100 bg-indigo-50/50 p-5 shadow-sm">
+                            <div>
+                                <h3 class="text-lg font-semibold text-indigo-900">DAST &amp; IAST</h3>
+                                <p class="text-xs font-semibold uppercase tracking-[0.18em] text-indigo-600">Runtime validation</p>
+                            </div>
+                            <p class="text-sm text-slate-700 leading-relaxed">Around 44% of organizations exercise applications in staging with dynamic and interactive tests, catching logic flaws that static tooling can miss and feeding rapid fix SLAs.</p>
+                            <p class="text-xs font-semibold uppercase tracking-wide text-indigo-700">Deep dive: <a href="#challenges" class="underline-offset-4 hover:underline">Addressing runtime blind spots</a></p>
+                        </article>
+                        <article class="flex flex-col gap-3 rounded-2xl border border-rose-100 bg-rose-50/50 p-5 shadow-sm">
+                            <div>
+                                <h3 class="text-lg font-semibold text-rose-900">Fuzzing, RASP &amp; Live Safeguards</h3>
+                                <p class="text-xs font-semibold uppercase tracking-[0.18em] text-rose-600">Resilience tuning</p>
+                            </div>
+                            <p class="text-sm text-slate-700 leading-relaxed">Leaders emulate programs like Google’s OSS-Fuzz and DoD Platform One, pairing continuous fuzzing with runtime protection to discover deep bugs before attackers do.</p>
+                            <p class="text-xs font-semibold uppercase tracking-wide text-rose-700">Deep dive: <a href="#tooling" class="underline-offset-4 hover:underline">Toolchain &amp; platforms</a></p>
+                        </article>
+                        <article class="flex flex-col gap-3 rounded-2xl border border-amber-100 bg-amber-50/50 p-5 shadow-sm md:col-span-2">
+                            <div class="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
+                                <div>
+                                    <h3 class="text-lg font-semibold text-amber-900">Pen-Tests, Red Teams &amp; Bounties</h3>
+                                    <p class="text-xs font-semibold uppercase tracking-[0.18em] text-amber-600">Human creativity</p>
+                                </div>
+                                <span class="inline-flex items-center gap-2 rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-700">Validates stack outcomes</span>
+                            </div>
+                            <p class="text-sm text-slate-700 leading-relaxed">High-maturity organizations blend formal pen-tests with bug bounty programs to stress controls, echoing the improvements reported by Microsoft, Capital One, and Equifax after major investments.</p>
+                            <p class="text-xs font-semibold uppercase tracking-wide text-amber-700">Deep dive: <a href="#case-studies" class="underline-offset-4 hover:underline">Case studies &amp; lessons</a></p>
+                        </article>
+                    </div>
+                    <div class="mt-6 flex flex-col gap-4 rounded-2xl bg-slate-900 px-6 py-5 text-slate-100 shadow-lg sm:flex-row sm:items-center sm:justify-between">
+                        <div>
+                            <p class="text-xs font-semibold uppercase tracking-[0.3em] text-sky-300">Quick reference</p>
+                            <p class="mt-2 text-sm text-slate-200">For a board-ready summary, revisit the <a href="Software_Security_Summary.html#assurance" class="font-semibold text-sky-200 underline-offset-4 hover:underline">executive assurance table</a> and align it with this navigator to show coverage depth.</p>
+                        </div>
+                        <a href="Software_Security_Summary.html#actions" class="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-slate-900 shadow-md transition hover:bg-blue-100/80">Tie into the 90-day plan<span aria-hidden="true">→</span></a>
+                    </div>
+                </section>
+
+                <hr class="border-gray-200 my-8">
+
                 <section id="challenges" class="mb-12">
-                    <h2 class="section-heading">3. Key Challenges in Implementing and Scaling Software Security</h2>
+                    <h2 class="section-heading">4. Key Challenges in Implementing and Scaling Software Security</h2>
                     <ul class="list-disc pl-6 mb-4 space-y-2">
                         <li><strong>Cultural and Organizational Alignment:</strong> Fostering effective collaboration between development, security, and operations teams remains difficult. In many organizations, developers are under pressure to deliver features quickly, while security teams push for thorough testing and risk mitigation. This can lead to friction and a silo mentality. Building a shared sense of responsibility for security (e.g., via DevSecOps culture or “security champions” programs within dev teams) is an ongoing challenge.</li>
                         <li><strong>Lack of Visibility and Accurate Inventory:</strong> You can’t secure what you don’t know about. Many organizations struggle to maintain a complete inventory of their software assets, APIs, and third-party components. According to surveys, <strong>57%</strong> of companies say they lack full visibility into their applications and APIs. This makes it hard to identify vulnerabilities or misconfigurations in all the places they might exist, especially as cloud-native apps, microservices, and external integrations proliferate.</li>
@@ -227,7 +347,7 @@
                 <hr class="border-gray-200 my-8">
 
                 <section id="best-practices" class="mb-12">
-                    <h2 class="section-heading">4. Best Practices in Software Security Governance, DevSecOps Collaboration, Automation, and Metrics</h2>
+                    <h2 class="section-heading">5. Best Practices in Software Security Governance, DevSecOps Collaboration, Automation, and Metrics</h2>
                     <h3 class="text-xl font-semibold text-gray-800 mb-2">Governance and Executive Sponsorship</h3>
                     <p class="mb-4">Leading organizations establish a clear <strong>governance framework for software security</strong>, often backed by executive sponsorship to ensure security is a priority at all levels. This might include forming a security council or Center of Excellence that sets policies for secure coding, code review, and vulnerability management. Executives (CIOs, CISOs) actively champion security initiatives, allocate budget for tools and training, and enforce accountability (for example, requiring that major releases pass security criteria). A top-down mandate helps integrate security into the company’s risk management and quality standards, rather than leaving it as an optional best effort.</p>
                     <h3 class="text-xl font-semibold text-gray-800 mb-2">Cross-Functional Collaboration (DevSecOps Culture)</h3>
@@ -241,7 +361,7 @@
                 <hr class="border-gray-200 my-8">
 
                 <section id="maturity-models" class="mb-12">
-                    <h2 class="section-heading">5. Software Security Maturity Models and Capability Assessment</h2>
+                    <h2 class="section-heading">6. Software Security Maturity Models and Capability Assessment</h2>
                     <p class="mb-4">Organizations often assess their software security maturity to understand where they stand and what to improve. Several frameworks exist – for example, the <strong>OWASP Software Assurance Maturity Model (SAMM)</strong> or the <strong>BSIMM (Building Security In Maturity Model)</strong> – which define levels of maturity across practices like governance, design, implementation, verification, and operations. Many companies also use simplified models to communicate progress. One common concept is the “Crawl–Walk–Run” model, analogous to the FinOps maturity metaphor, indicating increasing integration and proactivity in security practices. It’s important to note that maturity is often multi-dimensional: an organization might be very advanced in, say, its testing tools (Run level) but still developing its threat modeling practice (Walk or Crawl level).</p>
                     <ul class="list-disc pl-6 mb-4 space-y-2">
                         <li><strong>Crawl (Beginner):</strong> Security activities are mostly reactive or ad-hoc. The organization relies on basic scans or external audits infrequently. There may be little to no dedicated AppSec staff. Policies and standards are rudimentary or unenforced. For instance, development teams might fix vulnerabilities only after production incidents or penetration tests, rather than during development. Risk awareness is limited and largely driven by compliance checklists.</li>
@@ -254,7 +374,7 @@
                 <hr class="border-gray-200 my-8">
 
                 <section id="tooling" class="mb-12">
-                    <h2 class="section-heading">6. Tooling and Platforms Supporting Software Security Assurance</h2>
+                    <h2 class="section-heading">7. Tooling and Platforms Supporting Software Security Assurance</h2>
                     <p class="mb-4">The landscape of application security tools is rich and continually evolving, providing support for every stage of the development lifecycle. Organizations often employ a suite of tools to cover different types of vulnerabilities and stages of testing. Below are key categories of tooling common in 2025:</p>
                     <ul class="list-disc pl-6 mb-4 space-y-2">
                         <li><strong>Static Application Security Testing (SAST) Tools:</strong> Analyze source code or binary for known vulnerability patterns **before** the software runs. Examples: Veracode, Checkmarx, Fortify. These help catch issues like SQL injection or buffer overflows early in development.</li>
@@ -325,7 +445,7 @@
                 <hr class="border-gray-200 my-8">
 
                 <section id="statistics" class="mb-12">
-                    <h2 class="section-heading">7. Recent Statistics, Benchmarks, and Industry Data (2024–2025)</h2>
+                    <h2 class="section-heading">8. Recent Statistics, Benchmarks, and Industry Data (2024–2025)</h2>
                     <p class="mb-4">Recent data and surveys shed light on the state of software security and assurance:</p>
                     <ul class="list-disc pl-6 mb-4 space-y-2">
                         <li><strong>Focus Areas:</strong> Securing cloud-native applications and protecting the software supply chain are top priorities for organizations. In a 2024 survey, <strong>45%</strong> of security leaders cited cloud application security as their #1 focus area, and <strong>40%</strong> pointed to software supply chain risk. Meanwhile, ensuring compliance with new regulations (like mandatory SBOMs and secure development requirements) is a rapidly rising priority on the agenda.</li>
@@ -343,7 +463,7 @@
                 <hr class="border-gray-200 my-8">
 
                 <section id="insights" class="mb-12">
-                    <h2 class="section-heading">8. Insights from Analysts, Thought Leaders, and Industry Reports</h2>
+                    <h2 class="section-heading">9. Insights from Analysts, Thought Leaders, and Industry Reports</h2>
                     <ul class="list-disc pl-6 mb-4 space-y-2">
                         <li><strong>Mainstream Discipline:</strong> Analysts note that application security has become a mainstream IT discipline. Gartner’s Magic Quadrant for Application Security Testing (AST) tools, for example, highlights a mature market with many enterprise-grade solutions, indicating that software security assurance is now considered essential akin to quality assurance. Frameworks like NIST’s secure development guidelines and the OWASP Top 10 are widely referenced, showing industry convergence on what “good” looks like. In short, software security is no longer optional or niche – it’s a standard expectation in software development and a key component of operational risk management.</li>
                         <li><strong>ROI and Cost Avoidance:</strong> A growing body of research emphasizes the return on investment (ROI) of early security. IBM has reported that fixing vulnerabilities in the design or coding phase can be <strong>10-30x</strong> cheaper than patching after release. Avoiding even one major incident can save millions – the cost of a single large breach (often in the millions of dollars) dwarfs the annual budget of most AppSec programs. Thought leaders advocate framing AppSec in terms of value preservation: money saved by preventing incidents, and value gained by maintaining customer trust. This perspective helps in securing executive support and budgeting for AppSec initiatives.</li>
@@ -357,7 +477,7 @@
                 <hr class="border-gray-200 my-8">
 
                 <section id="case-studies" class="mb-12">
-                    <h2 class="section-heading">9. Case Studies and Software Security Assurance Examples</h2>
+                    <h2 class="section-heading">10. Case Studies and Software Security Assurance Examples</h2>
                     <ul class="list-disc pl-6 mb-4 space-y-2">
                         <li><strong>Microsoft:</strong> A pioneer in software security, Microsoft implemented a company-wide <em>Security Development Lifecycle (SDL)</em> after serious vulnerabilities (like Code Red and Nimda worms in the early 2000s) highlighted the need for better practices. By infusing threat modeling, secure coding training, and mandatory security testing into every product’s development, Microsoft reportedly reduced critical vulnerabilities in Windows and other products by as much as 80%. Today, Microsoft continues to lead with initiatives like bug bounty programs (paying external researchers for bugs), an internal “red team/blue team” approach for continuous testing, and advocacy of secure coding practices industry-wide.</li>
                         <li><strong>Google:</strong> Google has built security into its engineering DNA. Notably, Google employs automated fuzz testing at massive scale (its <em>OSS-Fuzz</em> service has discovered thousands of bugs in open source projects), and all Google code is subject to peer review with security in mind. They champion an initiative called <em>BeyondProd</em> (securing microservices architectures) and require every application to adhere to strict identity and access standards (as part of their BeyondCorp zero-trust philosophy). Google also invests heavily in supply chain security, releasing tools like <em>SLSA</em> frameworks to ensure the integrity of software build pipelines. As a result, despite managing some of the world’s most-targeted applications (Gmail, Android, etc.), Google has a strong track record of quickly addressing vulnerabilities and minimizing user impact.</li>
@@ -406,25 +526,28 @@
         });
 
         // Highlight active navigation item based on scroll position
-        const sections = document.querySelectorAll('section[id]');
-        const navItems = document.querySelectorAll('.nav-item');
+        const sections = Array.from(document.querySelectorAll('main .content section[id]'));
+        const allNavItems = Array.from(document.querySelectorAll('.nav-item'));
+        const internalNavItems = allNavItems.filter(item => item.getAttribute('href').startsWith('#'));
 
         function highlightNavItem() {
-            let current = '';
+            const scrollMarker = window.scrollY + 160;
+            let current = sections.length ? sections[0].getAttribute('id') : '';
             sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= sectionTop - sectionHeight / 3) {
+                if (scrollMarker >= section.offsetTop) {
                     current = section.getAttribute('id');
                 }
             });
-            navItems.forEach(item => {
+            allNavItems.forEach(item => {
                 item.classList.remove('active');
-                if (item.getAttribute('href').includes(current)) {
+                item.removeAttribute('aria-current');
+            });
+            internalNavItems.forEach(item => {
+                if (current && item.getAttribute('href') === `#${current}`) {
                     item.classList.add('active');
+                    item.setAttribute('aria-current', 'true');
                 }
             });
-            // Show/hide back to top button
             const backToTopBtn = document.getElementById('backToTopBtn');
             if (window.scrollY > 300) {
                 backToTopBtn.classList.add('show');
