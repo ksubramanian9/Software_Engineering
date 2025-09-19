@@ -11,6 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles/brand-header.css">
+<link rel="stylesheet" href="styles/design-system.css">
 
 <style>
   :root {
@@ -25,6 +26,15 @@
     --link: #8ab4f8;
     --code: #1a2432;
     --shadow: rgba(0,0,0,.3);
+    --page-bg: var(--bg);
+    --page-text: var(--text);
+    --nav-link-accent: var(--brand);
+    --home-button-bg: var(--brand);
+    --home-button-text: #0b1120;
+    --home-button-hover: var(--brand);
+    --home-button-text-hover: #0b1120;
+    --home-button-shadow: 0 12px 28px var(--shadow);
+    --home-button-shadow-hover: 0 18px 36px var(--shadow);
   }
   [data-theme="light"] {
     --bg: #f7fafc;
@@ -38,15 +48,20 @@
     --link: #1d4ed8;
     --code: #f3f4f6;
     --shadow: rgba(0,0,0,.08);
+    --page-bg: var(--bg);
+    --page-text: var(--text);
+    --nav-link-accent: var(--brand);
+    --home-button-bg: var(--brand);
+    --home-button-text: #0b1120;
+    --home-button-hover: var(--brand);
+    --home-button-text-hover: #0b1120;
+    --home-button-shadow: 0 12px 28px var(--shadow);
+    --home-button-shadow-hover: 0 18px 36px var(--shadow);
   }
 
-  html, body {
+  html {
     margin: 0;
     padding: 0;
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Inter', sans-serif;
-    line-height: 1.6;
   }
   .smooth-scroll { scroll-behavior: smooth; }
 
