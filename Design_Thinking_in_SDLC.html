@@ -14,6 +14,7 @@
     :root {
       --page-bg: #f8fafc;
       --page-text: #1e293b;
+      --nav-link-accent: #2563eb;
       --home-button-bg: #2563eb;
       --home-button-hover: #1d4ed8;
       --home-button-shadow: 0 12px 25px -12px rgba(37, 99, 235, 0.65);
@@ -52,8 +53,9 @@
       background: #fff;
       padding: 1em 2em;
       margin: 1em;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .card h1, .card h2, .card h3 {
       margin-top: 0;
@@ -101,12 +103,6 @@
       main {
         margin-left: 0;
       }
-    }
-    .card {
-      background-color: white;
-      border-radius: 0.75rem;
-      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .card:hover {
       transform: translateY(-5px);
