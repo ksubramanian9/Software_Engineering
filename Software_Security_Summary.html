@@ -89,10 +89,17 @@
             <span class="pill">SBOM</span>
             <span class="pill">AI & PQC</span>
           </div>
+          <div class="mt-4 flex flex-wrap gap-3 text-sm font-semibold text-blue-600">
+            <a href="Software_Security_Detailed.html#introduction" class="inline-flex items-center gap-1 hover:text-blue-500 hover:underline">Interactive deep dive<span aria-hidden="true">→</span></a>
+            <a href="Software_Security_Detailed.html#assurance-stack" class="inline-flex items-center gap-1 hover:text-blue-500 hover:underline">Layer coverage map<span aria-hidden="true">→</span></a>
+          </div>
         </header>
 
         <section id="exec" class="section mb-8">
-          <h3 class="text-xl font-semibold text-gray-900 mb-2">Executive Snapshot</h3>
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-2">
+            <h3 class="text-xl font-semibold text-gray-900">Executive Snapshot</h3>
+            <a href="Software_Security_Detailed.html#introduction" class="text-sm font-semibold text-blue-600 hover:text-blue-500 hover:underline">Interactive overview</a>
+          </div>
           <ul class="list-disc pl-6 space-y-1">
             <li>Exploits and vulnerabilities continue to surge; supply-chain and API weaknesses dominate breach causes.</li>
             <li>Leaders embed security into SDLC (DevSecOps), automate checks, and enforce rapid fix SLAs.</li>
@@ -117,7 +124,10 @@
         </section>
 
         <section id="threats" class="section mb-8">
-          <h3 class="text-xl font-semibold text-gray-900 mb-2">Threats & Exposure</h3>
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-2">
+            <h3 class="text-xl font-semibold text-gray-900">Threats & Exposure</h3>
+            <a href="Software_Security_Detailed.html#statistics" class="text-sm font-semibold text-blue-600 hover:text-blue-500 hover:underline">Benchmark data</a>
+          </div>
           <ul class="list-disc pl-6 space-y-1">
             <li>Critical CVEs weaponized within days; patch latency is the risk multiplier.</li>
             <li>Linux/macOS vulns spiked; browsers & office software heavily targeted.</li>
@@ -127,7 +137,10 @@
         </section>
 
         <section id="practices" class="section mb-8">
-          <h3 class="text-xl font-semibold text-gray-900 mb-2">What Works Now</h3>
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-2">
+            <h3 class="text-xl font-semibold text-gray-900">What Works Now</h3>
+            <a href="Software_Security_Detailed.html#best-practices" class="text-sm font-semibold text-blue-600 hover:text-blue-500 hover:underline">See playbook</a>
+          </div>
           <ul class="list-disc pl-6 space-y-1">
             <li><strong>Shift-left:</strong> SAST, SCA, secrets scanning in CI/CD; DAST on staging; IaC/K8s checks.</li>
             <li><strong>Risk triage:</strong> Fix crypto/injection first; enforce SLAs.</li>
@@ -139,7 +152,10 @@
         </section>
 
         <section id="assurance" class="section mb-8">
-          <h3 class="text-xl font-semibold text-gray-900 mb-2">Assurance Stack</h3>
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-2">
+            <h3 class="text-xl font-semibold text-gray-900">Assurance Stack</h3>
+            <a href="Software_Security_Detailed.html#assurance-stack" class="text-sm font-semibold text-blue-600 hover:text-blue-500 hover:underline">Explore depth</a>
+          </div>
           <table class="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
             <thead class="bg-gray-100">
               <tr><th class="p-2 text-left">Layer</th><th class="p-2 text-left">Purpose</th></tr>
@@ -155,7 +171,10 @@
         </section>
 
         <section id="regulation" class="section mb-8">
-          <h3 class="text-xl font-semibold text-gray-900 mb-2">Regulation</h3>
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-2">
+            <h3 class="text-xl font-semibold text-gray-900">Regulation</h3>
+            <a href="Software_Security_Detailed.html#insights" class="text-sm font-semibold text-blue-600 hover:text-blue-500 hover:underline">Analyst lens</a>
+          </div>
           <ul class="list-disc pl-6 space-y-1">
             <li><strong>US:</strong> NIST SSDF, SBOM attestations, Zero-Trust mandates.</li>
             <li><strong>EU:</strong> Cyber Resilience Act, NIS2, GDPR.</li>
@@ -165,14 +184,20 @@
         </section>
 
         <section id="industries" class="section mb-8">
-          <h3 class="text-xl font-semibold text-gray-900 mb-2">Sector Highlights</h3>
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-2">
+            <h3 class="text-xl font-semibold text-gray-900">Sector Highlights</h3>
+            <a href="Software_Security_Detailed.html#case-studies" class="text-sm font-semibold text-blue-600 hover:text-blue-500 hover:underline">Read case studies</a>
+          </div>
           <p class="mb-2"><strong>Finance:</strong> Fast remediation, high maturity.</p>
           <p class="mb-2"><strong>Healthcare:</strong> Ransomware risk, legacy devices, improving patching.</p>
           <p><strong>Public Sector:</strong> Zero-Trust rollouts, supply-chain audits, legacy modernization.</p>
         </section>
 
         <section id="emerging" class="section mb-8">
-          <h3 class="text-xl font-semibold text-gray-900 mb-2">Emerging Tech</h3>
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-2">
+            <h3 class="text-xl font-semibold text-gray-900">Emerging Tech</h3>
+            <a href="Software_Security_Detailed.html#tooling" class="text-sm font-semibold text-blue-600 hover:text-blue-500 hover:underline">Toolchain outlook</a>
+          </div>
           <ul class="list-disc pl-6 space-y-1">
             <li>AI in AppSec: triage, code review, autonomous fixes.</li>
             <li>Post-Quantum Crypto: NIST PQC standards, pilot adoption.</li>
@@ -183,16 +208,41 @@
         </section>
 
         <section id="actions" class="section">
-          <h3 class="text-xl font-semibold text-gray-900 mb-2">90-Day Action Plan</h3>
-          <ol class="list-decimal pl-6 space-y-1">
-            <li>Inventory apps/APIs; generate SBOMs.</li>
-            <li>Enable CI/CD guardrails (SAST, SCA, secrets, IaC scans).</li>
-            <li>Remediate top crypto/injection flaws; add virtual patches.</li>
-            <li>Run threat modeling for crown-jewel services.</li>
-            <li>Commission a focused pen-test.</li>
-            <li>Adopt a secure-dev policy aligned to NIST/ISO.</li>
-            <li>Align to India’s DPDP & CERT-In requirements.</li>
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
+            <h3 class="text-xl font-semibold text-gray-900">90-Day Action Plan</h3>
+            <a href="Software_Security_Detailed.html#best-practices" class="text-sm font-semibold text-blue-600 hover:text-blue-500 hover:underline">Map to playbook</a>
+          </div>
+          <ol class="list-decimal pl-6 space-y-3 text-sm text-gray-700">
+            <li>
+              <strong><a href="Software_Security_Detailed.html#full-lifecycle" class="text-blue-600 hover:text-blue-500 hover:underline">Inventory apps & APIs with SBOM coverage</a></strong>
+              <span class="block text-gray-500">Pair asset discovery with our <a href="index.html#services" class="text-blue-600 hover:text-blue-500 hover:underline">Secure-by-Design Engineering</a> advisors to automate SBOM generation and vendor attestations.</span>
+            </li>
+            <li>
+              <strong><a href="Software_Security_Detailed.html#best-practices" class="text-blue-600 hover:text-blue-500 hover:underline">Enable CI/CD guardrails</a></strong>
+              <span class="block text-gray-500">Embed SAST, SCA, secrets, and IaC checks using Brightscale’s pipeline accelerators for measurable DevSecOps coverage.</span>
+            </li>
+            <li>
+              <strong><a href="Software_Security_Detailed.html#challenges" class="text-blue-600 hover:text-blue-500 hover:underline">Remediate crown-jewel vulnerabilities</a></strong>
+              <span class="block text-gray-500">Target crypto and injection issues first, aligning remediation SLAs with our outcome-focused security coaching.</span>
+            </li>
+            <li>
+              <strong><a href="Software_Security_Detailed.html#adoption-trends" class="text-blue-600 hover:text-blue-500 hover:underline">Run collaborative threat modeling</a></strong>
+              <span class="block text-gray-500">Facilitate security champion workshops that trace design risks back to executive commitments.</span>
+            </li>
+            <li>
+              <strong><a href="Software_Security_Detailed.html#tooling" class="text-blue-600 hover:text-blue-500 hover:underline">Commission focused adversarial testing</a></strong>
+              <span class="block text-gray-500">Blend pen-tests and bug bounties with our assurance stack depth review for rapid feedback loops.</span>
+            </li>
+            <li>
+              <strong><a href="Software_Security_Detailed.html#maturity-models" class="text-blue-600 hover:text-blue-500 hover:underline">Codify secure development policy</a></strong>
+              <span class="block text-gray-500">Align policy updates to NIST SSDF and ISO 27034 benchmarks surfaced in our maturity sprints.</span>
+            </li>
+            <li>
+              <strong><a href="Software_Security_Detailed.html#insights" class="text-blue-600 hover:text-blue-500 hover:underline">Prove regulatory readiness</a></strong>
+              <span class="block text-gray-500">Use Brightscale advisory playbooks to evidence CERT-In 6-hour readiness and cross-border compliance.</span>
+            </li>
           </ol>
+          <p class="mt-4 text-sm text-gray-500">Every action aligns with Brightscale’s advisory offerings so stakeholders can move from executive snapshot to hands-on transformation without losing momentum.</p>
         </section>
       </div>
     </main>
