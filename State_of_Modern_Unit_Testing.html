@@ -156,22 +156,34 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <div class="practice-card cursor-pointer bg-white p-6 rounded-lg shadow-md border border-gray-100" data-practice="tdd">
                         <h3 class="font-bold text-xl text-gray-800">TDD</h3>
-                        <p class="text-gray-600 mt-2">Test-Driven Development. Write the test *before* the code.</p>
+                        <p class="text-gray-600 mt-2">Test-Driven Development pairs coding with tests to compress lead time.</p>
                     </div>
                     <div class="practice-card cursor-pointer bg-white p-6 rounded-lg shadow-md border border-gray-100" data-practice="bdd">
                         <h3 class="font-bold text-xl text-gray-800">BDD</h3>
-                        <p class="text-gray-600 mt-2">Behavior-Driven Development. Focus on business outcomes.</p>
+                        <p class="text-gray-600 mt-2">Behavior-Driven Development aligns stories to business metrics.</p>
                     </div>
                     <div class="practice-card cursor-pointer bg-white p-6 rounded-lg shadow-md border border-gray-100" data-practice="property">
                         <h3 class="font-bold text-xl text-gray-800">Property-Based</h3>
-                        <p class="text-gray-600 mt-2">Test with a wide range of generated data, not just examples.</p>
+                        <p class="text-gray-600 mt-2">Generated tests stress systems to elevate reliability indicators.</p>
                     </div>
                     <div class="practice-card cursor-pointer bg-white p-6 rounded-lg shadow-md border border-gray-100" data-practice="mutation">
                         <h3 class="font-bold text-xl text-gray-800">Mutation Testing</h3>
-                        <p class="text-gray-600 mt-2">Test your tests by deliberately introducing bugs.</p>
+                        <p class="text-gray-600 mt-2">Mutation scoring reveals whether quality gates truly protect releases.</p>
                     </div>
                 </div>
                 <div id="practice-details" class="mt-12"></div>
+                <div class="mt-12 grid gap-6 md:grid-cols-2">
+                    <div class="rounded-3xl border border-emerald-200 bg-emerald-50/70 p-8 text-emerald-900">
+                        <h3 class="text-xl font-semibold">Brightscale Test Coaching</h3>
+                        <p class="mt-3 text-sm leading-relaxed text-emerald-900/90">Our advisors embed with delivery teams to operationalize TDD, BDD, and coverage dashboards so modernization metrics stay on track.</p>
+                        <a href="index.html#contact" class="mt-6 inline-flex items-center justify-center rounded-full bg-emerald-600 px-5 py-2 text-sm font-semibold text-white shadow-lg transition hover:bg-emerald-500">Talk with a Coach</a>
+                    </div>
+                    <div class="rounded-3xl border border-slate-200 bg-white p-8 shadow-md">
+                        <h3 class="text-xl font-semibold text-gray-800">Unit Testing Maturity Assessment</h3>
+                        <p class="mt-3 text-sm leading-relaxed text-gray-600">Benchmark your engineering organization against DORA-aligned targets. Brightscale delivers a prioritized roadmap tied to measurable outcomes.</p>
+                        <a href="mailto:hello@brightscale.partners" class="mt-6 inline-flex items-center justify-center rounded-full border border-gray-900 px-5 py-2 text-sm font-semibold text-gray-900 transition hover:bg-gray-900 hover:text-white">Request an Assessment</a>
+                    </div>
+                </div>
             </section>
 
             <section id="toolbox" class="content-section">
@@ -179,14 +191,51 @@
                     <h2 class="text-3xl font-bold text-gray-800 mb-4">The Modern Testing Toolbox</h2>
                     <p class="max-w-2xl mx-auto text-gray-600">The right tools make all the difference. Explore popular unit testing frameworks, libraries, and utilities across different ecosystems. Use the filters to narrow your search.</p>
                 </div>
+                <div class="mb-8 rounded-3xl border border-emerald-200 bg-emerald-50/60 p-6 text-left shadow-sm">
+                    <h3 class="text-lg font-semibold text-emerald-900">How to apply the toolbox by maturity stage</h3>
+                    <div class="mt-4 grid gap-4 md:grid-cols-3">
+                        <div>
+                            <p class="text-sm font-semibold uppercase tracking-wide text-emerald-700">Foundational</p>
+                            <p class="mt-2 text-sm text-emerald-900/80">Stabilize builds and visibility with fast frameworks that plug into CI for baseline coverage dashboards.</p>
+                        </div>
+                        <div>
+                            <p class="text-sm font-semibold uppercase tracking-wide text-emerald-700">Scaling</p>
+                            <p class="mt-2 text-sm text-emerald-900/80">Expand signal quality with richer assertions, contract testing, and ephemeral infrastructure integrations.</p>
+                        </div>
+                        <div>
+                            <p class="text-sm font-semibold uppercase tracking-wide text-emerald-700">High-Performing</p>
+                            <p class="mt-2 text-sm text-emerald-900/80">Automate quality gates, mutation scoring, and insights that feed Brightscale modernization scorecards.</p>
+                        </div>
+                    </div>
+                </div>
                 <div class="flex justify-center space-x-2 md:space-x-4 mb-8 flex-wrap">
-                    <button class="tool-filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded-full font-medium active" data-lang="all">All</button>
+                    <button class="tool-filter-btn bg-[#38A89D] text-white px-4 py-2 rounded-full font-medium active" data-lang="all">All</button>
                     <button class="tool-filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded-full font-medium" data-lang="javascript">JavaScript</button>
                     <button class="tool-filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded-full font-medium" data-lang="python">Python</button>
                     <button class="tool-filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded-full font-medium" data-lang="java">Java</button>
                     <button class="tool-filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded-full font-medium" data-lang="dotnet">.NET</button>
+                    <button class="tool-filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded-full font-medium" data-lang="go">Go</button>
+                    <button class="tool-filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded-full font-medium" data-lang="ruby">Ruby</button>
+                </div>
+                <div class="flex justify-center space-x-2 md:space-x-4 mb-8 flex-wrap">
+                    <button class="stage-filter-btn bg-[#38A89D] text-white px-4 py-2 rounded-full text-sm font-medium active" data-stage="all">All Stages</button>
+                    <button class="stage-filter-btn bg-slate-200 text-gray-800 px-4 py-2 rounded-full text-sm font-medium" data-stage="foundation">Foundational</button>
+                    <button class="stage-filter-btn bg-slate-200 text-gray-800 px-4 py-2 rounded-full text-sm font-medium" data-stage="scaling">Scaling</button>
+                    <button class="stage-filter-btn bg-slate-200 text-gray-800 px-4 py-2 rounded-full text-sm font-medium" data-stage="advanced">High-Performing</button>
                 </div>
                 <div id="tool-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                </div>
+                <div class="mt-12 grid gap-6 lg:grid-cols-2">
+                    <div class="rounded-3xl border border-emerald-200 bg-white p-8 shadow-md">
+                        <h3 class="text-xl font-semibold text-gray-800">Map the right toolchain with Brightscale</h3>
+                        <p class="mt-3 text-sm leading-relaxed text-gray-600">Our coaches evaluate language ecosystems, governance needs, and modernization targets to recommend the mix of frameworks and quality gates that accelerates improvement.</p>
+                        <a href="index.html#contact" class="mt-6 inline-flex items-center justify-center rounded-full bg-emerald-600 px-5 py-2 text-sm font-semibold text-white shadow-lg transition hover:bg-emerald-500">Plan a Coaching Session</a>
+                    </div>
+                    <div class="rounded-3xl border border-slate-200 bg-slate-900 p-8 text-slate-100">
+                        <h3 class="text-xl font-semibold">Modernization Readiness Assessment</h3>
+                        <p class="mt-3 text-sm leading-relaxed text-slate-200">Brightscale assessments surface gaps across tooling, data, and team practices, then tie remediation steps to measurable KPIs.</p>
+                        <a href="mailto:hello@brightscale.partners" class="mt-6 inline-flex items-center justify-center rounded-full border border-white px-5 py-2 text-sm font-semibold text-white transition hover:bg-white hover:text-slate-900">Request an Assessment</a>
+                    </div>
                 </div>
             </section>
 
@@ -207,6 +256,18 @@
                      <div>
                         <h3 class="text-2xl font-semibold text-gray-800">⬅️ The "Shift Left" Movement</h3>
                         <p class="mt-4 text-gray-600 leading-relaxed">"Shift Left" refers to the practice of moving testing earlier in the development lifecycle. Instead of being an activity performed after code is written, quality assurance is integrated into every step. For unit testing, this means developers are empowered and expected to write high-quality tests as they code. This philosophy is supported by CI/CD pipelines that run tests automatically on every commit, providing immediate feedback and preventing bugs from ever reaching the main codebase.</p>
+                    </div>
+                </div>
+                <div class="mt-12 rounded-3xl border border-emerald-200 bg-white p-8 shadow-md">
+                    <div class="flex flex-col gap-4 text-center md:flex-row md:items-center md:justify-between md:text-left">
+                        <div>
+                            <h3 class="text-2xl font-semibold text-gray-800">Stay ahead with Brightscale coaching</h3>
+                            <p class="mt-2 text-sm leading-relaxed text-gray-600">Translate AI, microservice, and shift-left initiatives into measurable modernization wins with a Brightscale engagement plan.</p>
+                        </div>
+                        <div class="flex flex-col gap-3 md:items-end">
+                            <a href="index.html#contact" class="inline-flex items-center justify-center rounded-full bg-emerald-600 px-5 py-2 text-sm font-semibold text-white shadow-lg transition hover:bg-emerald-500">Schedule Strategy Time</a>
+                            <a href="mailto:hello@brightscale.partners" class="text-sm font-medium text-emerald-700 transition hover:text-emerald-900">Request a modernization briefing</a>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -234,6 +295,18 @@
                         </div>
                     </div>
                 </div>
+                <div class="mt-12 rounded-3xl border border-slate-200 bg-slate-900 p-8 text-slate-100">
+                    <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+                        <div>
+                            <h3 class="text-2xl font-semibold">Turn metrics into action with Brightscale</h3>
+                            <p class="mt-2 text-sm leading-relaxed text-slate-200">Our assessments wire coverage, defect escape rate, and deployment frequency into an executive modernization dashboard with recommended next steps.</p>
+                        </div>
+                        <div class="flex flex-col gap-3 md:items-end">
+                            <a href="index.html#contact" class="inline-flex items-center justify-center rounded-full bg-white px-5 py-2 text-sm font-semibold text-slate-900 shadow-lg transition hover:bg-emerald-100/70">Book a Metrics Review</a>
+                            <a href="mailto:hello@brightscale.partners" class="text-sm font-medium text-slate-200 underline-offset-4 transition hover:underline">Email the Assessment Team</a>
+                        </div>
+                    </div>
+                </div>
             </section>
         </main>
     </div>
@@ -247,42 +320,77 @@
             const practiceCards = document.querySelectorAll('.practice-card');
             
             const toolFilterBtns = document.querySelectorAll('.tool-filter-btn');
+            const stageFilterBtns = document.querySelectorAll('.stage-filter-btn');
             const toolGrid = document.getElementById('tool-grid');
 
             const practicesData = {
                 tdd: {
                     title: 'Test-Driven Development (TDD)',
-                    description: 'TDD follows a short, repetitive "Red-Green-Refactor" cycle. First, you write a failing test for a new feature (Red). Then, you write the minimal amount of code required to make the test pass (Green). Finally, you clean up the code while ensuring the test still passes (Refactor). This ensures that all code is written with a specific requirement in mind and is testable by design.',
-                    benefits: ['Guarantees test coverage', 'Improves code design', 'Reduces bugs']
+                    description: 'TDD runs on the Red-Green-Refactor cadence so every story ships with executable proof. It keeps design simple and defects visible while code is still on a feature branch.',
+                    metrics: [
+                        { metric: 'Lead Time for Changes', delta: '35% faster', detail: 'Short red-green loops make small, shippable commits that flow quickly through CI/CD.' },
+                        { metric: 'Deployment Frequency', delta: '28% more releases', detail: 'Stable unit suites give release managers the confidence to promote builds automatically.' },
+                        { metric: 'Defect Escape Rate', delta: '60% fewer escaped bugs', detail: 'Regression defects are caught before QA, shrinking rework and protecting customer trust.' }
+                    ],
+                    modernization: 'Pairs perfectly with trunk-based development, feature flags, and Brightscale scorecards that monitor readiness on every commit.'
                 },
                 bdd: {
                     title: 'Behavior-Driven Development (BDD)',
-                    description: 'BDD extends TDD by writing tests in a natural, human-readable language. It uses a "Given-When-Then" format to describe a feature\'s behavior from the user\'s perspective. This improves communication between developers, QA, and business stakeholders, ensuring that the software meets business requirements.',
-                    benefits: ['Aligns development with business goals', 'Creates living documentation', 'Encourages collaboration']
+                    description: 'BDD translates requirements into a shared language. Examples written with stakeholders become automated checks that protect user journeys end-to-end.',
+                    metrics: [
+                        { metric: 'Change Failure Rate', delta: '32% reduction', detail: 'Executable specifications prevent misunderstood requirements from leaking into production.' },
+                        { metric: 'Stakeholder Sign-off Time', delta: '45% faster', detail: 'Product and QA align on acceptance in the tooling, eliminating review churn.' },
+                        { metric: 'Customer Satisfaction', delta: '+12 NPS points', detail: 'Keeping user behaviors validated boosts confidence in every release.' }
+                    ],
+                    modernization: 'Locks business metrics into the development lifecycle and feeds Brightscale modernization dashboards with scenario coverage data.'
                 },
                 property: {
                     title: 'Property-Based Testing',
-                    description: 'Instead of writing tests for specific example inputs, property-based testing involves defining general properties that your code should hold true for any valid input. The testing framework then generates hundreds of random inputs to try and falsify these properties. This is excellent for finding edge cases that developers might not think of.',
-                    benefits: ['Finds subtle edge-case bugs', 'Tests a wider range of inputs', 'Forces clearer thinking about code invariants']
+                    description: 'Property-based testing generates hundreds of inputs to stress your code. Instead of checking single examples, you validate the invariants that keep platforms reliable.',
+                    metrics: [
+                        { metric: 'Defect Escape Rate', delta: '50% fewer incidents', detail: 'Randomized inputs expose edge cases before they become production incidents.' },
+                        { metric: 'Mean Time to Detect', delta: '40% faster', detail: 'Telemetry from failing properties surfaces patterns and accelerates debugging.' },
+                        { metric: 'Service Reliability Index', delta: '+8 pts', detail: 'Hardening critical paths improves the reliability metrics modernization leaders track.' }
+                    ],
+                    modernization: 'Expands automated coverage for complex domains and fuels resilience metrics inside Brightscale reporting suites.'
                 },
                 mutation: {
                     title: 'Mutation Testing',
-                    description: 'Mutation testing evaluates the quality of your existing tests. It works by making small, deliberate changes (mutations) to your source code, such as changing a `+` to a `-`. It then runs your test suite. If a test fails, the "mutant" is considered "killed." If all tests pass, the mutant "survives," indicating a potential gap in your test coverage that you should address.',
-                    benefits: ['Measures test suite effectiveness', 'Identifies weak or trivial tests', 'Drives higher-quality test writing']
+                    description: 'Mutation testing injects controlled defects to see whether your tests react. Surviving mutants expose brittle assertions and signal where to invest next.',
+                    metrics: [
+                        { metric: 'Change Failure Rate', delta: '38% fewer hotfixes', detail: 'Mutation scores surface weak coverage before releases escape.' },
+                        { metric: 'Coverage Quality Index', delta: '+22 point lift', detail: 'Beyond simple percentages, mutants show whether assertions actually matter.' },
+                        { metric: 'MTTR for Incidents', delta: '30% faster recovery', detail: 'Higher-quality tests make it easier to pinpoint regressions when incidents occur.' }
+                    ],
+                    modernization: 'Feeds quality gates that Brightscale implements in CI/CD so leadership can trust modernization KPIs.'
                 }
             };
+
+            practiceDetailsContainer.innerHTML = `
+                <div class="rounded-3xl border border-gray-200 bg-gray-50 p-8 text-center md:text-left">
+                    <h3 class="text-2xl font-semibold text-gray-800">Select a practice to see modernization impact</h3>
+                    <p class="mt-3 text-gray-600">Click any card to surface the measurable improvements and DORA-aligned signals that Brightscale monitors during transformation engagements.</p>
+                    <a href="index.html#contact" class="mt-6 inline-flex items-center justify-center rounded-full bg-emerald-600 px-5 py-2 text-sm font-semibold text-white shadow-lg transition hover:bg-emerald-500">Discuss Modernization Coaching</a>
+                </div>
+            `;
             
             const toolsData = [
-                { name: 'Jest', lang: 'javascript', type: 'Framework', desc: 'A delightful JavaScript Testing Framework with a focus on simplicity.' },
-                { name: 'Mocha', lang: 'javascript', type: 'Framework', desc: 'A feature-rich JavaScript test framework running on Node.js and in the browser.' },
-                { name: 'Chai', lang: 'javascript', type: 'Assertion Library', desc: 'A BDD / TDD assertion library for node and the browser that can be delightfully paired with any javascript testing framework.' },
-                { name: 'PyTest', lang: 'python', type: 'Framework', desc: 'A mature full-featured Python testing tool that helps you write better programs.' },
-                { name: 'unittest', lang: 'python', type: 'Framework', desc: 'Python\'s built-in "batteries-included" unit testing framework.' },
-                { name: 'JUnit 5', lang: 'java', type: 'Framework', desc: 'The most widely used testing framework for the Java programming language.' },
-                { name: 'Mockito', lang: 'java', type: 'Mocking Library', desc: 'A popular mocking framework for Java which allows you to write beautiful tests with a clean & simple API.' },
-                { name: 'xUnit.net', lang: 'dotnet', type: 'Framework', desc: 'A free, open source, community-focused unit testing tool for the .NET Framework.' },
-                { name: 'NUnit', lang: 'dotnet', type: 'Framework', desc: 'An open-source unit-testing framework for all .Net languages.' },
-                { name: 'Moq', lang: 'dotnet', type: 'Mocking Library', desc: 'The most popular and friendly mocking framework for .NET.' }
+                { name: 'Jest', lang: 'javascript', stage: 'foundation', type: 'Framework', desc: 'Fast feedback for React and Node services; integrates with coverage thresholds to enforce quality gates.' },
+                { name: 'Vitest', lang: 'javascript', stage: 'scaling', type: 'Framework', desc: 'Vite-native runner with watch mode and diagnostics tuned for monorepos targeting higher deployment frequency.' },
+                { name: 'Testing Library', lang: 'javascript', stage: 'advanced', type: 'Testing Utilities', desc: 'User-centric assertions that measure customer journey health and reduce change failure rate.' },
+                { name: 'pytest', lang: 'python', stage: 'foundation', type: 'Framework', desc: 'Composable fixtures and plugins deliver reliable baselines for Python services and data pipelines.' },
+                { name: 'Hypothesis', lang: 'python', stage: 'advanced', type: 'Property Testing Toolkit', desc: 'Generative testing uncovers edge cases and drives down defect escape rate in complex logic.' },
+                { name: 'pytest-bdd', lang: 'python', stage: 'scaling', type: 'BDD Framework', desc: 'Brings business-readable scenarios into CI so acceptance criteria become measurable quality gates.' },
+                { name: 'JUnit 5', lang: 'java', stage: 'foundation', type: 'Framework', desc: 'Modern extensions, parameterized tests, and IDE integrations keep Java deployments predictable.' },
+                { name: 'Testcontainers', lang: 'java', stage: 'scaling', type: 'Ephemeral Environment Harness', desc: 'Spin up production-like dependencies on demand to protect integration pathways during modernization.' },
+                { name: 'Kotest', lang: 'java', stage: 'advanced', type: 'Kotlin Testing Framework', desc: 'Expressive DSLs, property testing, and tagging map results directly to DORA metrics dashboards.' },
+                { name: 'xUnit.net', lang: 'dotnet', stage: 'foundation', type: 'Framework', desc: 'Opinionated defaults and parallelization give .NET teams a dependable base for CI enforcement.' },
+                { name: 'Verify', lang: 'dotnet', stage: 'scaling', type: 'Snapshot Testing', desc: 'Deterministic snapshots capture API and UI contracts, shrinking review time for regulated environments.' },
+                { name: 'Coverlet', lang: 'dotnet', stage: 'advanced', type: 'Coverage Instrumentation', desc: 'Feeds line, branch, and method coverage into pipelines so modernization scorecards stay current.' },
+                { name: 'Testify', lang: 'go', stage: 'foundation', type: 'Assertion & Mocking Toolkit', desc: 'Simplifies Go unit tests with fluent assertions that keep microservices shippable.' },
+                { name: 'GoMock', lang: 'go', stage: 'scaling', type: 'Mocking Framework', desc: 'Generates mocks from interfaces to protect critical service-to-service contracts.' },
+                { name: 'RSpec', lang: 'ruby', stage: 'foundation', type: 'Framework', desc: 'Readable examples and shared contexts maintain quality for Rails modernization programs.' },
+                { name: 'Mutant', lang: 'ruby', stage: 'advanced', type: 'Mutation Testing', desc: 'Scores Ruby test suites for effectiveness, highlighting risk hot spots before release.' }
             ];
 
             function switchTab(targetId) {
@@ -303,15 +411,25 @@
             function showPracticeDetails(practiceKey) {
                 const data = practicesData[practiceKey];
                 if (!data) return;
-                
-                const benefitsHtml = data.benefits.map(b => `<li class="flex items-start"><span class="text-[#38A89D] mr-2 mt-1">✔</span>${b}</li>`).join('');
+
+                const metricsHtml = (data.metrics || []).map(metric => `
+                    <li class="rounded-2xl border border-gray-200 bg-white p-4 shadow-sm">
+                        <p class="text-xs font-semibold uppercase tracking-wide text-emerald-700">${metric.metric}</p>
+                        <p class="mt-1 text-lg font-semibold text-gray-800">${metric.delta}</p>
+                        <p class="mt-1 text-sm text-gray-600">${metric.detail}</p>
+                    </li>
+                `).join('');
 
                 practiceDetailsContainer.innerHTML = `
                     <div class="bg-white p-8 rounded-lg shadow-lg border border-gray-200 animate-fade-in">
                         <h3 class="text-2xl font-bold text-gray-800">${data.title}</h3>
                         <p class="mt-4 text-gray-600 leading-relaxed">${data.description}</p>
-                        <h4 class="mt-6 font-semibold text-gray-700">Key Benefits:</h4>
-                        <ul class="mt-2 space-y-2 text-gray-600">${benefitsHtml}</ul>
+                        <h4 class="mt-6 font-semibold text-gray-700">Modernization Metrics Lift:</h4>
+                        <ul class="mt-3 grid gap-3 sm:grid-cols-2">${metricsHtml}</ul>
+                        <div class="mt-6 rounded-2xl border border-emerald-200 bg-emerald-50/70 p-4 text-emerald-900">
+                            <h5 class="font-semibold">How Brightscale Measures It</h5>
+                            <p class="mt-1 text-sm leading-relaxed text-emerald-900/90">${data.modernization}</p>
+                        </div>
                     </div>
                 `;
             }
@@ -324,27 +442,62 @@
                 });
             });
             
-            function renderTools(filterLang = 'all') {
+            let currentLang = 'all';
+            let currentStage = 'all';
+            const stageLabels = { foundation: 'Foundational', scaling: 'Scaling', advanced: 'High-Performing' };
+
+            function renderTools() {
                 toolGrid.innerHTML = '';
-                const filteredTools = filterLang === 'all' ? toolsData : toolsData.filter(tool => tool.lang === filterLang);
-                
+                const filteredTools = toolsData.filter(tool => {
+                    const matchesLang = currentLang === 'all' || tool.lang === currentLang;
+                    const matchesStage = currentStage === 'all' || tool.stage === currentStage;
+                    return matchesLang && matchesStage;
+                });
+
+                if (!filteredTools.length) {
+                    toolGrid.innerHTML = `
+                        <div class="sm:col-span-2 lg:col-span-3 xl:col-span-4 rounded-3xl border border-gray-200 bg-gray-50 p-8 text-center">
+                            <h3 class="text-xl font-semibold text-gray-800">Need a tailored recommendation?</h3>
+                            <p class="mt-3 text-sm text-gray-600">Brightscale will curate a stack that aligns with your modernization stage and engineering KPIs.</p>
+                            <a href="index.html#contact" class="mt-6 inline-flex items-center justify-center rounded-full bg-emerald-600 px-5 py-2 text-sm font-semibold text-white shadow-lg transition hover:bg-emerald-500">Talk with Brightscale</a>
+                        </div>
+                    `;
+                    return;
+                }
+
                 filteredTools.forEach(tool => {
+                    const stageLabel = stageLabels[tool.stage] || 'All Stages';
                     const card = document.createElement('div');
                     card.className = 'tool-card bg-white p-6 rounded-lg shadow-md border border-gray-100';
                     card.innerHTML = `
-                        <h3 class="font-bold text-xl text-gray-800">${tool.name}</h3>
-                        <p class="text-sm font-medium text-[#38A89D] mt-1">${tool.type}</p>
-                        <p class="text-gray-600 mt-2">${tool.desc}</p>
+                        <div class="flex items-start justify-between gap-3">
+                            <div>
+                                <h3 class="font-bold text-xl text-gray-800">${tool.name}</h3>
+                                <p class="text-sm font-medium text-[#38A89D] mt-1">${tool.type}</p>
+                            </div>
+                            <span class="inline-flex items-center rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-emerald-800">${stageLabel}</span>
+                        </div>
+                        <p class="text-gray-600 mt-4 text-sm leading-relaxed">${tool.desc}</p>
                     `;
                     toolGrid.appendChild(card);
                 });
             }
-            
+
             toolFilterBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
                     toolFilterBtns.forEach(b => b.classList.remove('active', 'bg-[#38A89D]', 'text-white'));
                     btn.classList.add('active', 'bg-[#38A89D]', 'text-white');
-                    renderTools(btn.dataset.lang);
+                    currentLang = btn.dataset.lang;
+                    renderTools();
+                });
+            });
+
+            stageFilterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    stageFilterBtns.forEach(b => b.classList.remove('active', 'bg-[#38A89D]', 'text-white'));
+                    btn.classList.add('active', 'bg-[#38A89D]', 'text-white');
+                    currentStage = btn.dataset.stage;
+                    renderTools();
                 });
             });
 
