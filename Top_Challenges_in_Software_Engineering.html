@@ -72,11 +72,11 @@
 
     <header class="brand-header">
         <div class="brand-header__bar">
-            <a href="index.html" class="brand-header__identity" aria-label="Brightscale Partners home">
+            <a href="index.html" class="brand-header__identity" data-firm-name-aria-label="{firm} home">
                 <span class="brand-header__glyph" aria-hidden="true">SE</span>
                 <span class="brand-header__lockup">
                     <span>Software Advisory</span>
-                    <span>Brightscale Partners</span>
+                    <span data-firm-name></span>
                 </span>
             </a>
             <nav class="brand-header__nav" aria-label="Primary">
@@ -221,7 +221,7 @@
                 </div>
             </div>
             <div class="mt-10 max-w-4xl mx-auto text-center text-gray-700 space-y-4">
-                <p>Brightscale partners with engineering and product leaders to translate these pillars into funded roadmaps, aligning platform, security, and FinOps owners around measurable milestones.</p>
+                <p><span data-firm-name></span> partners with engineering and product leaders to translate these pillars into funded roadmaps, aligning platform, security, and FinOps owners around measurable milestones.</p>
                 <p>Our multidisciplinary advisors co-create playbooks, stand up governance cadences, and coach executives through the sequencing decisions that unlock durable outcomes.</p>
                 <div class="flex justify-center">
                     <a href="index.html#contact" class="inline-flex items-center justify-center rounded-full bg-emerald-600 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-emerald-500">Book a Strategy Call</a>
@@ -867,7 +867,7 @@
                     <div class="flex items-center gap-3">
                         <span class="inline-flex h-11 w-11 items-center justify-center rounded-full bg-emerald-400/20 text-lg font-semibold text-emerald-200">SE</span>
                         <div class="text-sm">
-                            <p class="font-semibold tracking-[0.3em] text-slate-400">Brightscale Partners</p>
+                            <p class="font-semibold tracking-[0.3em] text-slate-400"><span data-firm-name></span></p>
                             <p class="text-slate-300">Software Advisory &amp; Transformation</p>
                         </div>
                     </div>
@@ -896,7 +896,7 @@
                 </div>
             </div>
             <div class="flex flex-col gap-4 border-t border-slate-800 pt-6 text-sm text-slate-500 md:flex-row md:items-center md:justify-between">
-                <p>© 2024 Brightscale Partners. All rights reserved.</p>
+                <p>© 2024 <span data-firm-name></span>. All rights reserved.</p>
                 <div class="flex flex-wrap gap-6">
                     <a href="#" class="transition hover:text-slate-200">Privacy Policy</a>
                     <a href="#" class="transition hover:text-slate-200">Terms of Service</a>
@@ -905,5 +905,6 @@
             </div>
         </div>
     </footer>
+  <script type="module" src="scripts/branding/apply-firm-name.js"></script>
 </body>
 </html>
